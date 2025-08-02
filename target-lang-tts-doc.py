@@ -20,7 +20,7 @@
 
 
 
-# LEAST to MOST complicated sources:
+# LEAST to MOST complicated sources (2 easy, 2 hard...):
 # 1) Deloitte - Weekly global economic update
     # 1/week, weds, all html
     # most straightforward and consistent by far
@@ -33,8 +33,14 @@
         # more difficult, more charts, etc...
     # https://www.mckinsey.com/featured-insights
 
-# 3) 
-# 4) 
+# 3) JP Morgan - Market Insights
+    # no clear schedule, all kinds of different html structures, pdfs, and charts...
+    # they are categorized, but not via subtitle/tag - category is in each article address though, so can be filtered by links in html
+    # https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/
+# 4) BlackRock - Market Insights
+    # no clear schedule, tons of different html structures, pdfs, tons of charts, videos (with transcripts, to be fair), etc. etc...
+    # way too many categories
+        # this may not be a downside - could select for a small handful of categories, eliminating most of the difficulties
 
 
 # checked other language sources... not what i'm looking for
