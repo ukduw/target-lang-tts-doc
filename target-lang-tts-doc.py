@@ -3,6 +3,7 @@
 # ElevenLabs multilingual model
 # TTS engine + bilingual AI voice map
     # configs: pitch, speech, pauses, volume, etc...
+# API docs: https://elevenlabs.io/docs/api-reference/introduction
 
 # 2
 # python machine translation - EasyNMT?
