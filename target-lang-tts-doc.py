@@ -1,9 +1,12 @@
 
 # 1
 # ElevenLabs multilingual model
-# TTS engine + bilingual AI voice map
+# TTS engine + bilingual AI voice maps
     # configs: pitch, speech, pauses, volume, etc...
+    # note: API supports mp3 - wav only via web
 # API docs: https://elevenlabs.io/docs/api-reference/introduction
+    # Text to speech: https://elevenlabs.io/docs/api-reference/text-to-speech/v-1-text-to-speech-voice-id-stream-input
+    # Dubbing: https://elevenlabs.io/docs/api-reference/dubbing/list
 
 # 2
 # python machine translation - EasyNMT?
@@ -76,7 +79,6 @@
             # be sure to separate the functions that 1) write folder contents to json and 2) check files against json metrics
                 # both of them could include a check for "[ARCHIVED]" - if so, skip
 
-# note: m4a better
 
 
 # don't forget to pip freeze > requirements.txt after writing script...
