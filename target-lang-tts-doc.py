@@ -52,6 +52,7 @@
     # no clear schedule, tons of different html structures, pdfs, tons of charts, videos (with transcripts, to be fair), etc. etc...
     # way too many categories
         # this may not be a downside - could select for a small handful of categories, eliminating most of the difficulties
+    # https://www.blackrock.com/us/individual/insights
 
 
 # checked other language sources... not what i'm looking for
