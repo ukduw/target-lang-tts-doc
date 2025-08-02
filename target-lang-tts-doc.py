@@ -75,3 +75,4 @@
             # be sure to separate the functions that 1) write folder contents to json and 2) check files against json metrics
                 # both of them could include a check for "[ARCHIVED]" - if so, skip
 
+# note: m4a better
