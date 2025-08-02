@@ -77,3 +77,6 @@
                 # both of them could include a check for "[ARCHIVED]" - if so, skip
 
 # note: m4a better
+
+
+# don't forget to pip freeze > requirements.txt after writing script...
