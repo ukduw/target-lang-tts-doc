@@ -7,6 +7,8 @@
 # API docs: https://elevenlabs.io/docs/api-reference/introduction
     # Text to speech: https://elevenlabs.io/docs/api-reference/text-to-speech/v-1-text-to-speech-voice-id-stream-input
     # Dubbing: https://elevenlabs.io/docs/api-reference/dubbing/list
+        # To experiment with dubbing (also interested to see result when using low quality audio from the 90s):
+        # https://www.youtube.com/watch?v=HnQ2Lk20n3U
 
 # 2
 # python machine translation - EasyNMT?
