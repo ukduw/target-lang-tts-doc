@@ -1,3 +1,7 @@
+from bs4 import BeautifulSoup
+from easynmt import EasyNMT
+
+model = EasyNMT('opus-mt')
 
 # 1
 # ElevenLabs multilingual model
@@ -30,7 +34,7 @@
     # some are very straightforward, with weekly updates...
     # others do not seem to have a set schedule
         # may have to store the latest title as string
-        # each scrape iterates through titles, stopping when it reaches the stored on
+        # each scrape iterates through titles, stopping when it reaches the stored one
 # two types:
     # 2 very straightforward, all html/html-heavy with easy-to-use/clear categorization + clear schedule
     # other 2 way more complicated, with more pdfs/charts/videos, all kinds of html structures, category problems + no clear schedule
@@ -98,3 +102,9 @@ class TextToSpeech:
     
     def ElevenLabsTTS(self):
         return
+    
+
+if __name__ == "__main__":
+    # placeholder
+    ScrapeText.seed_check()
+    # placeholder
