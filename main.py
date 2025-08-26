@@ -35,7 +35,6 @@
     # 2 very straightforward, all html/html-heavy with easy-to-use/clear categorization + clear schedule
     # other 2 way more complicated, with more pdfs/charts/videos, all kinds of html structures, category problems + no clear schedule
 
-
 # LEAST to MOST complicated sources (2 easy, 2 hard...):
 # 1) Deloitte - Weekly global economic update
     # 1/week, weds, all html
@@ -53,7 +52,44 @@
     # https://www.blackrock.com/us/individual/insights
 
 
-# checked other language sources... not what i'm looking for
-
 
 # don't forget to pip freeze > requirements.txt after writing script...
+
+
+
+class ScrapeText:
+    
+    def seed_check(self):
+        return
+    
+    def scrape_deloitte(self):
+        deloitte_url = "https://www.deloitte.com/us/en/insights/topics/economy/global-economic-outlook/weekly-update/weekly-update-2025-06.html"
+
+    def scrape_jpmorgan(self):
+        jpmorgan_url = "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/"
+
+    def scrape_blackrock(self):
+        blackrock_url = "https://www.blackrock.com/us/individual/insights"
+
+
+class SelectiveTranslate:
+    
+    def word_breakup(self):
+        return
+
+    def sentence_breakup(self):
+        return
+
+    def dictionary_check(self):
+        return
+    
+    def sentence_length_check(self):
+        return
+    
+    def total_length_check(self):
+        return
+
+    def translate_replace_text(self):
+        return
+    
+    
