@@ -64,20 +64,30 @@ elevenlabs = ElevenLabs(EL_API_KEY)
     # https://www.blackrock.com/us/individual/insights
 
 
+# ?) EPA?
+    # https://onlinelibrary.wiley.com/journal/23806567
+
 
 # don't forget to pip freeze > requirements.txt after writing script...
 # write readme
 # export TMPDIR=/path/to/tmp/with/disk/space, /tmpdir
 
+# how to select language/voice map? maybe cycle through or per source?
+
 
 
 class ScrapeText:
     
+
     def seed_check(self):
         return
     
     def scrape_deloitte(self):
         deloitte_url = "https://www.deloitte.com/us/en/insights/topics/economy/global-economic-outlook/weekly-update/weekly-update-2025-06.html"
+        example_url = "https://www.deloitte.com/us/en/insights/topics/economy/asia-pacific/japan-economic-outlook.html"
+            # or navigate from root? don't know if same url is reused/updated
+        soup = BeautifulSoup(deloitte_url, 'html.parser')
+
 
     def scrape_jpmorgan(self):
         jpmorgan_url = "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/"
