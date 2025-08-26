@@ -67,6 +67,7 @@ elevenlabs = ElevenLabs(EL_API_KEY)
 
 # don't forget to pip freeze > requirements.txt after writing script...
 # write readme
+# export TMPDIR=/path/to/tmp/with/disk/space, /tmpdir
 
 
 
