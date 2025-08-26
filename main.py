@@ -1,7 +1,15 @@
 from bs4 import BeautifulSoup
 from easynmt import EasyNMT
+from elevenlabs.client import ElevenLabs
+
+from dotenv import load_dotenv
+import os
 
 model = EasyNMT('opus-mt')
+
+load_dotenv()
+EL_API_KEY = os.getenv("ELEVENLABS_API_KEY")
+elevenlabs = ElevenLabs(EL_API_KEY)
 
 # 1
 # ElevenLabs multilingual model
