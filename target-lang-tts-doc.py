@@ -41,13 +41,6 @@
     # 1/week, weds, all html
     # most straightforward and consistent by far
     # https://www.deloitte.com/us/en/insights/topics/economy/global-economic-outlook/weekly-update/weekly-update-2025-06.html
-# 2) McKinsey & Company - Featured Insights
-    # weekly updates, all html, sorted into categories
-        # "explainers", "week in charts", "themes", "lives & legacies"
-        # each article labeled - easy to ignore categories that tend to be chart/infographic/link-heavy
-    # non-weekly updates - large pdf reports
-        # more difficult, more charts, etc...
-    # https://www.mckinsey.com/featured-insights
 
 # 3) JP Morgan - Market Insights
     # no clear schedule, all kinds of different html structures, pdfs, and charts...
@@ -61,26 +54,6 @@
 
 
 # checked other language sources... not what i'm looking for
-
-
-
-# 4?
-# delete files after 7/30/365 days IF they've been listened to?
-    # 1. how can i track which mp3s have been played by the user...?
-        # script monitors directory
-        # use inotify/watchdog to get last access time (unfortunately, os.path.getatime() is unreliable on linux, apparently...)
-        # store file name + last access time + last modified time in json
-        # if last access time within x days AND last modified time > x days... delete
-    # 2. but then how can i flag files i want to keep???
-        # maybe modifying the file?
-            # e.g. just changing the name or putting some flag in the file name that's filtered for
-        # rather than checking last modified time vs json...
-        # i think just editing the file name to contain a specific flag would be a lot easier AND identify the archived mp3s
-            # e.g. file name: "[ARCHIVED] title... .mp3"
-            # if file name contains exactly "[ARCHIVED]", remove from json or flag it to be skipped?
-            # be sure to separate the functions that 1) write folder contents to json and 2) check files against json metrics
-                # both of them could include a check for "[ARCHIVED]" - if so, skip
-
 
 
 # don't forget to pip freeze > requirements.txt after writing script...
