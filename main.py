@@ -54,6 +54,7 @@
 
 
 # don't forget to pip freeze > requirements.txt after writing script...
+# write readme
 
 
 
@@ -93,3 +94,7 @@ class SelectiveTranslate:
         return
     
     
+class TextToSpeech:
+    
+    def ElevenLabsTTS(self):
+        return
