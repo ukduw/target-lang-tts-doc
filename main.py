@@ -83,6 +83,9 @@ class ScrapeText:
         # needs way to check for new article(s), e.g. via date? or store title of last article in txt?
         # if new, append to list?
         # iterate through list and run corresponding scrape_source() function below
+
+        # if txt is empty/has no corresponding last article, that means it hasn't been scraped before
+            # scrape x number of articles to seed
         return
     
     def scrape_deloitte(self):
