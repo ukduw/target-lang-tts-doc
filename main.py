@@ -80,6 +80,9 @@ class ScrapeText:
     
 
     def seed_check(self):
+        # needs way to check for new article(s), e.g. via date? or store title of last article in txt?
+        # if new, append to list?
+        # iterate through list and run corresponding scrape_source() function below
         return
     
     def scrape_deloitte(self):
