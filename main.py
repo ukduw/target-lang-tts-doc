@@ -100,6 +100,9 @@ class ScrapeText:
             last_article = json.load(f) # e.g. { "source1": "article_name", ... }
 
         # call scrape_x functions
+        # if all most_recent titles match, return early
+            # does this need to be in if __name__...?
+            # e.g. if this func returns empty list, return
 
         # alter last_article dict
             # e.g. return last_article strings from below funcs...
