@@ -99,7 +99,9 @@ class ScrapeText:
         # if txt is empty/has no corresponding last article, that means it hasn't been scraped before
             # scrape x number of articles to seed
 
-        last_article = json.loads("last-article.json") # e.g. { "source1": "article_name", ... }
+        with open("last-article.json", "r") as f:
+            last_article = json.load(f) # e.g. { "source1": "article_name", ... }
+
         return
     
     def scrape_deloitte(self):
