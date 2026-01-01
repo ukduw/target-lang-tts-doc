@@ -77,7 +77,12 @@ elevenlabs = ElevenLabs(EL_API_KEY)
 
 
 class ScrapeText:
-    
+    deloitte_url = "https://www.deloitte.com/us/en/insights/topics/economy/global-economic-outlook/weekly-update/weekly-update-2025-06.html"
+    example_url = "https://www.deloitte.com/us/en/insights/topics/economy/asia-pacific/japan-economic-outlook.html"
+        # or navigate from root? don't know if same url is reused/updated
+
+    jpmorgan_url = "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/"
+    blackrock_url = "https://www.blackrock.com/us/individual/insights"
 
     def seed_check(self):
         # needs way to check for new article(s), e.g. via date? or store title of last article in txt?
@@ -89,17 +94,15 @@ class ScrapeText:
         return
     
     def scrape_deloitte(self):
-        deloitte_url = "https://www.deloitte.com/us/en/insights/topics/economy/global-economic-outlook/weekly-update/weekly-update-2025-06.html"
-        example_url = "https://www.deloitte.com/us/en/insights/topics/economy/asia-pacific/japan-economic-outlook.html"
-            # or navigate from root? don't know if same url is reused/updated
-        soup = BeautifulSoup(deloitte_url, 'html.parser')
+        del_soup = BeautifulSoup(self.deloitte_url, 'html.parser')
 
 
     def scrape_jpmorgan(self):
-        jpmorgan_url = "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/"
+        jpm_soup = BeautifulSoup(self.jpmorgan_url, 'html.parser')
+
 
     def scrape_blackrock(self):
-        blackrock_url = "https://www.blackrock.com/us/individual/insights"
+        br_soup = BeautifulSoup(self.blackrock_url, 'html.parser')
 
 
 class SelectiveTranslate:
