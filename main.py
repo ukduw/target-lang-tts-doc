@@ -174,10 +174,11 @@ class TextToSpeech:
 
 if __name__ == "__main__":
     # placeholder
-    ScrapeText.seed_check()
+    article_text = ScrapeText.seed_check()
         # if all most_recent titles match, return early
-        # does this need to be in if __name__...?
         # e.g. if this func returns empty list, return
+            # wouldn't work here
+            # needs logic in subsequent funcs to return early if not article_text
     # placeholder
 
 # set up periodic scrape/checks
