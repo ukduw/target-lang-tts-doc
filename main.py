@@ -113,6 +113,9 @@ class ScrapeText:
 
         return
     
+    # these funcs need to take string param of last article
+    # iterate through titles until that string is reached; only scrape ones before it
+    # return string of name of the most recent article (first in list)
     def scrape_deloitte(self):
         del_soup = BeautifulSoup(self.deloitte_url, 'html.parser')
 
