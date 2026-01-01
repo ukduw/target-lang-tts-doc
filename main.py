@@ -1,5 +1,9 @@
 from bs4 import BeautifulSoup
 from easynmt import EasyNMT
+    # very large file size; consider just using translators (or other) package
+    # use google, deepl, baidu translation...
+    # script relies on accessing internet resources anyway; no need to use local translation, like easynmt
+        # translation may also be higher quality?
 from elevenlabs.client import ElevenLabs
 
 from dotenv import load_dotenv
