@@ -92,14 +92,19 @@ class ScrapeText:
     blackrock_url = "https://www.blackrock.com/us/individual/insights"
 
     def seed_check(self):
-        # if json is empty/has no corresponding last article, that means it hasn't been scraped before
-            # scrape 5? articles to seed
-
         LAST_ARTICLE_FILE = "last-article.json"
         with open(LAST_ARTICLE_FILE, "r") as f:
             last_article = json.load(f) # e.g. { "source1": "article_name", ... }
 
         # call scrape_x functions
+        del_la = last_article.get("deloitte")
+        jpm_la = last_article.get("jpmorgan")
+        br_la = last_article.get("blackrock")
+
+        ScrapeText.scrape_deloitte(del_la)
+        ScrapeText.scrape_jpmorgan(jpm_la)
+        ScrapeText.scrape_blackrock(br_la)
+
         # if all most_recent titles match, return early
             # does this need to be in if __name__...?
             # e.g. if this func returns empty list, return
@@ -118,14 +123,23 @@ class ScrapeText:
         # iterate through...
     # return string of name of the most recent article (first in list)
     def scrape_deloitte(self, la):
+        if la is None:
+            return # placeholder, scrape first 5
+
         del_soup = BeautifulSoup(self.deloitte_url, 'html.parser')
         return # most recent title string
 
     def scrape_jpmorgan(self, la):
+        if la is None:
+            return # placeholder, scrape first 5
+
         jpm_soup = BeautifulSoup(self.jpmorgan_url, 'html.parser')
         return # most recent title string
 
     def scrape_blackrock(self, la):
+        if la is None:
+            return # placeholder, scrape first 5
+
         br_soup = BeautifulSoup(self.blackrock_url, 'html.parser')
         return # most recent title string
 
