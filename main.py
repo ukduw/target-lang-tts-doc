@@ -8,6 +8,7 @@ from elevenlabs.client import ElevenLabs
 
 from dotenv import load_dotenv
 import os
+import json
 
 model = EasyNMT('opus-mt')
 
@@ -97,6 +98,8 @@ class ScrapeText:
 
         # if txt is empty/has no corresponding last article, that means it hasn't been scraped before
             # scrape x number of articles to seed
+
+        last_article = json.loads("last-article.json") # e.g. { "source1": "article_name", ... }
         return
     
     def scrape_deloitte(self):
