@@ -116,16 +116,17 @@ class ScrapeText:
     # these funcs need to take string param of last article
     # iterate through titles until that string is reached; only scrape ones before it
     # return string of name of the most recent article (first in list)
-    def scrape_deloitte(self):
+    def scrape_deloitte(self, la):
         del_soup = BeautifulSoup(self.deloitte_url, 'html.parser')
+        return # most recent title string
 
-
-    def scrape_jpmorgan(self):
+    def scrape_jpmorgan(self, la):
         jpm_soup = BeautifulSoup(self.jpmorgan_url, 'html.parser')
+        return # most recent title string
 
-
-    def scrape_blackrock(self):
+    def scrape_blackrock(self, la):
         br_soup = BeautifulSoup(self.blackrock_url, 'html.parser')
+        return # most recent title string
 
 
 class SelectiveTranslate:
