@@ -121,25 +121,43 @@ class ScrapeText:
         # iterate through...
     # return string of name of the most recent article (first in list)
     def scrape_deloitte(self, la):
-        if la is None:
-            return # placeholder, scrape first 5
-
         del_soup = BeautifulSoup(self.deloitte_url, 'html.parser')
-        return # list, [most recent title string, article text]
+
+        if la is None:
+            # scrape first 5?
+            return # list, [most recent title string, article text]
+        else:
+            # iterate over titles until la matches
+            # append urls to list
+            # scrape them for article text
+                # needs logic to deal with titles, ignore figures and captions...
+            return # list, [most recent title string, article text]
 
     def scrape_jpmorgan(self, la):
-        if la is None:
-            return # placeholder, scrape first 5
-
         jpm_soup = BeautifulSoup(self.jpmorgan_url, 'html.parser')
-        return # list, [most recent title string, article text]
+
+        if la is None:
+            # scrape first 5?
+            return # list, [most recent title string, article text]
+        else:
+            # iterate over titles until la matches
+            # append urls to list
+            # scrape them for article text
+                # needs logic to deal with titles, ignore figures and captions...
+            return # list, [most recent title string, article text]
 
     def scrape_blackrock(self, la):
-        if la is None:
-            return # placeholder, scrape first 5
-
         br_soup = BeautifulSoup(self.blackrock_url, 'html.parser')
-        return # list, [most recent title string, article text]
+
+        if la is None:
+            # scrape first 5?
+            return # list, [most recent title string, article text]
+        else:
+            # iterate over titles until la matches
+            # append urls to list
+            # scrape them for article text
+                # needs logic to deal with titles, ignore figures and captions...
+            return # list, [most recent title string, article text]
 
 
 class SelectiveTranslate:
