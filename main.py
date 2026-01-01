@@ -96,7 +96,6 @@ class ScrapeText:
         with open(LAST_ARTICLE_FILE, "r") as f:
             last_article = json.load(f) # e.g. { "source1": "article_name", ... }
 
-        # call scrape_x functions
         del_la = last_article.get("deloitte")
         jpm_la = last_article.get("jpmorgan")
         br_la = last_article.get("blackrock")
@@ -127,21 +126,21 @@ class ScrapeText:
             return # placeholder, scrape first 5
 
         del_soup = BeautifulSoup(self.deloitte_url, 'html.parser')
-        return # most recent title string
+        return # list, [most recent title string, article text]
 
     def scrape_jpmorgan(self, la):
         if la is None:
             return # placeholder, scrape first 5
 
         jpm_soup = BeautifulSoup(self.jpmorgan_url, 'html.parser')
-        return # most recent title string
+        return # list, [most recent title string, article text]
 
     def scrape_blackrock(self, la):
         if la is None:
             return # placeholder, scrape first 5
 
         br_soup = BeautifulSoup(self.blackrock_url, 'html.parser')
-        return # most recent title string
+        return # list, [most recent title string, article text]
 
 
 class SelectiveTranslate:
