@@ -1,16 +1,10 @@
 from bs4 import BeautifulSoup
-from easynmt import EasyNMT
-    # very large file size; consider just using translators (or other) package
-    # use google, deepl, baidu translation...
-    # script relies on accessing internet resources anyway; no need to use local translation, like easynmt
-        # translation may also be higher quality?
+import translators as ts
 from elevenlabs.client import ElevenLabs
 
 from dotenv import load_dotenv
 import os
 import json
-
-model = EasyNMT('opus-mt')
 
 load_dotenv()
 EL_API_KEY = os.getenv("ELEVENLABS_API_KEY")
@@ -123,7 +117,13 @@ class ScrapeText:
 class SelectiveTranslate:
     # iterate through seed_check return (list of strings of article texts)
 
-    # python machine translation - pivot from EasyNMT
+    # python machine translation
+    # deepl engine via translators library
+        # very high translation quality with more natural speech than google translate
+        # strong handling of grammar, nuance
+        # google and baidu's strengths don't really apply here
+    # call method: res = ts.deepl(string_to_translate, to_language='fr')
+
     # use dictionary of most common words; use inverse to identify specialist/technical language
         # sparsely translate, label as lang, put original in brackets
     # translate (some) full sentences below a certain length (basic sentences)
