@@ -92,12 +92,8 @@ class ScrapeText:
     blackrock_url = "https://www.blackrock.com/us/individual/insights"
 
     def seed_check(self):
-        # needs way to check for new article(s), e.g. via date? or store title of last article in txt?
-        # if new, append to list?
-        # iterate through list and run corresponding scrape_source() function below
-
-        # if txt is empty/has no corresponding last article, that means it hasn't been scraped before
-            # scrape x number of articles to seed
+        # if json is empty/has no corresponding last article, that means it hasn't been scraped before
+            # scrape 5? articles to seed
 
         LAST_ARTICLE_FILE = "last-article.json"
         with open(LAST_ARTICLE_FILE, "r") as f:
@@ -111,10 +107,12 @@ class ScrapeText:
         with open(LAST_ARTICLE_FILE, "w") as f:
             json.dump(last_article, f, indent=2)
 
-        return
+        return # needs to return list of strings of article text
     
     # these funcs need to take string param of last article
     # iterate through titles until that string is reached; only scrape ones before it
+        # build list of article pages to be scraped
+        # iterate through...
     # return string of name of the most recent article (first in list)
     def scrape_deloitte(self, la):
         del_soup = BeautifulSoup(self.deloitte_url, 'html.parser')
@@ -130,7 +128,8 @@ class ScrapeText:
 
 
 class SelectiveTranslate:
-    
+    # iterate through seed_check return (list of strings of article texts)
+
     def word_breakup(self):
         return
 
@@ -151,7 +150,8 @@ class SelectiveTranslate:
     
     
 class TextToSpeech:
-    
+    # different source = different voice model/language?
+
     def ElevenLabsTTS(self):
         return
     
