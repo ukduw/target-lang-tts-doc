@@ -16,38 +16,7 @@ load_dotenv()
 EL_API_KEY = os.getenv("ELEVENLABS_API_KEY")
 elevenlabs = ElevenLabs(EL_API_KEY)
 
-# 1
-# ElevenLabs multilingual model
-# TTS engine + bilingual AI voice maps
-    # configs: pitch, speech, pauses, volume, etc...
-    # note: API supports mp3 - wav only via web
-# API docs: https://elevenlabs.io/docs/api-reference/introduction
-    # Text to speech: https://elevenlabs.io/docs/api-reference/text-to-speech/v-1-text-to-speech-voice-id-stream-input
-    # Dubbing: https://elevenlabs.io/docs/api-reference/dubbing/list
-        # To experiment with dubbing (also interested to see result when using low quality audio from the 90s):
-        # https://www.youtube.com/watch?v=HnQ2Lk20n3U
 
-# 2
-# python machine translation - EasyNMT?
-# use dictionary of most common words; use inverse to identify specialist/technical language
-    # sparsely translate, label as lang, put original in brackets
-# translate (some) full sentences below a certain length (basic sentences)
-# update: a lot of new syntax... bit unsure of how to do it without hard-coding...
-    # maybe determine total number of words + short sentences to be translated by the total length of the report
-    # use these totals to limit a list to a max length
-    # populate list with strings - most uncommon vocab (determined via dictionary of most common words) + sentences below x length
-    # iterate through the list, machine translating each and adding the translations to another list...
-    # replace original with structure "translation (original text)"
-        # ...how can the position of the original be identified???
-        # maybe they can be replaced with a jibberish marker as they're added to list...
-
-# 3
-# would rather set up periodic scrape/checks
-# two methods:
-    # some are very straightforward, with weekly updates...
-    # others do not seem to have a set schedule
-        # may have to store the latest title as string
-        # each scrape iterates through titles, stopping when it reaches the stored one
 # two types:
     # 2 very straightforward, all html/html-heavy with easy-to-use/clear categorization + clear schedule
     # other 2 way more complicated, with more pdfs/charts/videos, all kinds of html structures, category problems + no clear schedule
@@ -68,17 +37,11 @@ elevenlabs = ElevenLabs(EL_API_KEY)
         # this may not be a downside - could select for a small handful of categories, eliminating most of the difficulties
     # https://www.blackrock.com/us/individual/insights
 
-
-# ?) EPA?
-    # https://onlinelibrary.wiley.com/journal/23806567
-
 # ?) ...substacks?
 
 
 # don't forget to pip freeze > requirements.txt after writing script...
 # write readme
-
-# how to select language/voice map? maybe cycle through or per source?
 
 
 
@@ -103,10 +66,6 @@ class ScrapeText:
         ScrapeText.scrape_jpmorgan(jpm_la)
         ScrapeText.scrape_blackrock(br_la)
 
-        # if all most_recent titles match, return early
-            # does this need to be in if __name__...?
-            # e.g. if this func returns empty list, return
-
         # alter last_article dict
             # e.g. return last_article strings from below funcs...
         # json.dump the whole thing, overwriting previous
@@ -115,6 +74,7 @@ class ScrapeText:
 
         return # needs to return list of strings of article text
     
+
     # these funcs need to take string param of last article
     # iterate through titles until that string is reached; only scrape ones before it
         # build list of article pages to be scraped
@@ -163,6 +123,19 @@ class ScrapeText:
 class SelectiveTranslate:
     # iterate through seed_check return (list of strings of article texts)
 
+    # python machine translation - pivot from EasyNMT
+    # use dictionary of most common words; use inverse to identify specialist/technical language
+        # sparsely translate, label as lang, put original in brackets
+    # translate (some) full sentences below a certain length (basic sentences)
+    # update: a lot of new syntax... bit unsure of how to do it without hard-coding...
+        # maybe determine total number of words + short sentences to be translated by the total length of the report
+        # use these totals to limit a list to a max length
+        # populate list with strings - most uncommon vocab (determined via dictionary of most common words) + sentences below x length
+        # iterate through the list, machine translating each and adding the translations to another list...
+        # replace original with structure "translation (original text)"
+            # ...how can the position of the original be identified???
+            # maybe they can be replaced with a jibberish marker as they're added to list...
+
     def word_breakup(self):
         return
 
@@ -181,9 +154,19 @@ class SelectiveTranslate:
     def translate_replace_text(self):
         return
     
-    
+
 class TextToSpeech:
     # different source = different voice model/language?
+
+    # ElevenLabs multilingual model
+    # TTS engine + bilingual AI voice maps
+        # configs: pitch, speech, pauses, volume, etc...
+        # note: API supports mp3 - wav only via web
+    # API docs: https://elevenlabs.io/docs/api-reference/introduction
+        # Text to speech: https://elevenlabs.io/docs/api-reference/text-to-speech/v-1-text-to-speech-voice-id-stream-input
+        # Dubbing: https://elevenlabs.io/docs/api-reference/dubbing/list
+            # To experiment with dubbing (also interested to see result when using low quality audio from the 90s):
+            # https://www.youtube.com/watch?v=HnQ2Lk20n3U
 
     def ElevenLabsTTS(self):
         return
@@ -192,4 +175,13 @@ class TextToSpeech:
 if __name__ == "__main__":
     # placeholder
     ScrapeText.seed_check()
+        # if all most_recent titles match, return early
+        # does this need to be in if __name__...?
+        # e.g. if this func returns empty list, return
     # placeholder
+
+# set up periodic scrape/checks
+# two types:
+    # some are very straightforward, with weekly updates...
+    # others do not seem to have a set schedule
+
