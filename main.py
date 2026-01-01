@@ -99,8 +99,17 @@ class ScrapeText:
         # if txt is empty/has no corresponding last article, that means it hasn't been scraped before
             # scrape x number of articles to seed
 
-        with open("last-article.json", "r") as f:
+        LAST_ARTICLE_FILE = "last-article.json"
+        with open(LAST_ARTICLE_FILE, "r") as f:
             last_article = json.load(f) # e.g. { "source1": "article_name", ... }
+
+        # call scrape_x functions
+
+        # alter last_article dict
+            # e.g. return last_article strings from below funcs...
+        # json.dump the whole thing, overwriting previous
+        with open(LAST_ARTICLE_FILE, "w") as f:
+            json.dump(last_article, f, indent=2)
 
         return
     
