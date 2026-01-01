@@ -71,6 +71,8 @@ elevenlabs = ElevenLabs(EL_API_KEY)
 # ?) EPA?
     # https://onlinelibrary.wiley.com/journal/23806567
 
+# ?) ...substacks?
+
 
 # don't forget to pip freeze > requirements.txt after writing script...
 # write readme
