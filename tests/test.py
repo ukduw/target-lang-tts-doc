@@ -10,6 +10,7 @@ def test_seed():
     assert True # placeholder
 
 
+
 @pytest.mark.translate
 @pytest.mark.parameterize("full_article,result", [
     ("Example text without punctuation", ["Example", "text", "without", "punctuation"]),
@@ -49,6 +50,8 @@ def test_total_length_check():
 @pytest.mark.translate
 def test_translate_replace_text():
     assert True
+
+
 
 @pytest.mark.tts
 def test_tts():
