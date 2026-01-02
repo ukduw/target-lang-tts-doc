@@ -42,7 +42,9 @@ def test_sentence_length_check():
 
 @pytest.mark.translate
 def test_total_length_check():
-    assert True
+    full_article = "Germany's economy recorded no growth qoq in Q3 2025, in line with the preliminary estimate and following a 0.2%% contraction in Q2. Germany's prolonged economic downturn constitutes a technical recession, with contractions in the last 3 years. Structural headwinds include high energy costs due to Russian sanctions, increasingly weak demand for German goods, and fundamental issues in Germany's most important sectors, especially automotive."
+    word_count = SelectiveTranslate.total_length_check(full_article)
+    assert word_count == 63
 
 @pytest.mark.translate
 def test_translate_replace_text():
