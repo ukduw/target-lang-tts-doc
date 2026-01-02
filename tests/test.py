@@ -29,6 +29,9 @@ def test_sentence_breakup():
 
 @pytest.mark.translate
 def test_dictionary_check():
+    # needs dictionary...
+    # supply SelectiveTranslate.dictionary_check(params) a list of words with known frequency
+    # check that only the least common are returned
     assert True
 
 @pytest.mark.translate
