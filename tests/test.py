@@ -18,11 +18,12 @@ def test_seed():
         # remember, this func's purpose is to be used with dictionary_check, so only the words themselves matter
 ])
 def test_word_breakup(full_article, result):
-    broken_up = SelectiveTranslate.word_breakup(full_article)
-    assert broken_up == result
+    words = SelectiveTranslate.word_breakup(full_article)
+    assert words == result
 
 @pytest.mark.translate
 def test_sentence_breakup():
+
     assert True
 
 @pytest.mark.translate
