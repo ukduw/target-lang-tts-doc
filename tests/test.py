@@ -11,8 +11,15 @@ def test_seed():
 
 
 @pytest.mark.translate
-def test_word_breakup():
-    assert True # placeholder
+@pytest.mark.parameterize("full_article,result", [
+    ("Example text without punctuation", ["Example", "text", "without", "punctuation"]),
+    ("Punctuation, for example, this sentence!", ["Punctuation", "for", "example", "this", "sentence"]),
+    ("It's misc.'punc' sentences(?) that *cause* !@#$%^&* problems...", ["It's", "misc", "punc", "sentences", "that", "cause", "problems"]),
+        # remember, this func's purpose is to be used with dictionary_check, so only the words themselves matter
+])
+def test_word_breakup(full_article, result):
+    broken_up = SelectiveTranslate.word_breakup(full_article)
+    assert broken_up == result
 
 @pytest.mark.translate
 def test_sentence_breakup():
