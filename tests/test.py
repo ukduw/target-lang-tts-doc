@@ -23,8 +23,9 @@ def test_word_breakup(full_article, result):
 
 @pytest.mark.translate
 def test_sentence_breakup():
-
-    assert True
+    full_article = "An example. This time made up of multiple sentences! Not necessarily ending with the same punctuation?"
+    sentences = SelectiveTranslate.sentence_breakup(full_article)
+    assert sentences == ["An example.", "This time made up of multiple sentences!", "Not necessarily ending with the same punctuation?"]
 
 @pytest.mark.translate
 def test_dictionary_check():
