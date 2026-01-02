@@ -20,4 +20,4 @@ def test_tts():
     assert True # placeholder
 
 
-# call: pytest -m scrape
+# call: pytest -m scrape/translate/tts
