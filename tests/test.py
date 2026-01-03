@@ -62,10 +62,6 @@ def test_sentence_length_check():
         # about 1/3? of the short sentences, which will be smaller proportion of total sentences
 
 @pytest.mark.translate
-def test_total_length_check():
-
-
-@pytest.mark.translate
 @pytest.mark.parameterize("test_phrases,end_lang,result", [
     ("Excuse me, ...", "", ""),
     ("", "", ""),
