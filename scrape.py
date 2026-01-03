@@ -24,14 +24,15 @@ import json
 # ?) ...substacks?
 
 
+deloitte_url = "https://www.deloitte.com/us/en/insights/topics/economy/global-economic-outlook/weekly-update/weekly-update-2025-06.html"
+example_url = "https://www.deloitte.com/us/en/insights/topics/economy/asia-pacific/japan-economic-outlook.html"
+    # or navigate from root? don't know if same url is reused/updated
+
+jpmorgan_url = "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/"
+blackrock_url = "https://www.blackrock.com/us/individual/insights"
+
 
 class ScrapeText:
-    deloitte_url = "https://www.deloitte.com/us/en/insights/topics/economy/global-economic-outlook/weekly-update/weekly-update-2025-06.html"
-    example_url = "https://www.deloitte.com/us/en/insights/topics/economy/asia-pacific/japan-economic-outlook.html"
-        # or navigate from root? don't know if same url is reused/updated
-
-    jpmorgan_url = "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/"
-    blackrock_url = "https://www.blackrock.com/us/individual/insights"
 
     def seed_check(self):
         LAST_ARTICLE_FILE = "last-article.json"
@@ -61,7 +62,7 @@ class ScrapeText:
         # iterate through...
     # return string of name of the most recent article (first in list)
     def scrape_deloitte(self, la):
-        del_soup = BeautifulSoup(self.deloitte_url, 'html.parser')
+        del_soup = BeautifulSoup(deloitte_url, 'html.parser')
 
         if la is None:
             # scrape first 5?
@@ -74,7 +75,7 @@ class ScrapeText:
             return # list, [most recent title string, article text]
 
     def scrape_jpmorgan(self, la):
-        jpm_soup = BeautifulSoup(self.jpmorgan_url, 'html.parser')
+        jpm_soup = BeautifulSoup(jpmorgan_url, 'html.parser')
 
         if la is None:
             # scrape first 5?
@@ -87,7 +88,7 @@ class ScrapeText:
             return # list, [most recent title string, article text]
 
     def scrape_blackrock(self, la):
-        br_soup = BeautifulSoup(self.blackrock_url, 'html.parser')
+        br_soup = BeautifulSoup(blackrock_url, 'html.parser')
 
         if la is None:
             # scrape first 5?
