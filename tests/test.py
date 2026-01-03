@@ -11,17 +11,17 @@ def test_seed():
     assert True # placeholder
 
 @pytest.mark.scrape
-def test_seed():
+def test_scrape_del():
     ScrapeText.scrape_deloitte()
     assert True # placeholder
 
 @pytest.mark.scrape
-def test_seed():
+def test_scrape_jpm():
     ScrapeText.scrape_jpmorgan()
     assert True # placeholder
 
 @pytest.mark.scrape
-def test_seed():
+def test_scrape_br():
     ScrapeText.scrape_blackrock()
     assert True # placeholder
 
