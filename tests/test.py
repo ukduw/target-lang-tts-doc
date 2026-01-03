@@ -7,6 +7,7 @@ from tts import TextToSpeech
 
 @pytest.mark.scrape
 def test_seed():
+    ScrapeText.seed_check()
     assert True # placeholder
 
 
@@ -48,8 +49,15 @@ def test_total_length_check():
     assert word_count == 63
 
 @pytest.mark.translate
-def test_translate_replace_text():
-    assert True
+@pytest.mark.parameterize("test_phrases,end_lang,result", [
+    ("Excuse me, ...", "", ""),
+    ("", "", ""),
+    ("", "", ""),
+        # remember, this func's purpose is to be used with dictionary_check, so only the words themselves matter
+])
+def test_translate_replace_text(test_phrases, end_lang, result):
+    translated = SelectiveTranslate.translate_replace_text(test_phrases, end_lang)
+    assert translated == result
 
 
 
