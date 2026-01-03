@@ -66,7 +66,6 @@ def test_determine_short_sentences_to_be_translated():
     ("Excuse me, ...", "", ""),
     ("", "", ""),
     ("", "", ""),
-        # remember, this func's purpose is to be used with dictionary_check, so only the words themselves matter
 ])
 def test_translate_replace_text(test_phrases, end_lang, result):
     translated = SelectiveTranslate.translate_replace_text(test_phrases, end_lang)
@@ -76,6 +75,8 @@ def test_translate_replace_text(test_phrases, end_lang, result):
 
 @pytest.mark.tts
 def test_tts():
+    # check appropriate language/model selected per source
+    # check output file is as expected
     assert True # placeholder
 
 
