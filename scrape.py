@@ -43,9 +43,9 @@ class ScrapeText:
         jpm_la = last_article.get("jpmorgan")
         br_la = last_article.get("blackrock")
 
-        ScrapeText.scrape_deloitte(del_la)
-        ScrapeText.scrape_jpmorgan(jpm_la)
-        ScrapeText.scrape_blackrock(br_la)
+        ScrapeText.scrape_deloitte(deloitte_url, del_la)
+        ScrapeText.scrape_jpmorgan(jpmorgan_url, jpm_la)
+        ScrapeText.scrape_blackrock(blackrock_url, br_la)
 
         # alter last_article dict
             # e.g. return last_article strings from below funcs...
@@ -61,8 +61,8 @@ class ScrapeText:
         # build list of article pages to be scraped
         # iterate through...
     # return string of name of the most recent article (first in list)
-    def scrape_deloitte(self, la):
-        del_soup = BeautifulSoup(deloitte_url, 'html.parser')
+    def scrape_deloitte(self, source, la):
+        del_soup = BeautifulSoup(source, 'html.parser')
 
         if la is None:
             # scrape first 5?
@@ -74,8 +74,8 @@ class ScrapeText:
                 # needs logic to deal with titles, ignore figures and captions...
             return # list, [most recent title string, article text]
 
-    def scrape_jpmorgan(self, la):
-        jpm_soup = BeautifulSoup(jpmorgan_url, 'html.parser')
+    def scrape_jpmorgan(self, source, la):
+        jpm_soup = BeautifulSoup(source, 'html.parser')
 
         if la is None:
             # scrape first 5?
@@ -87,8 +87,8 @@ class ScrapeText:
                 # needs logic to deal with titles, ignore figures and captions...
             return # list, [most recent title string, article text]
 
-    def scrape_blackrock(self, la):
-        br_soup = BeautifulSoup(blackrock_url, 'html.parser')
+    def scrape_blackrock(self, source, la):
+        br_soup = BeautifulSoup(source, 'html.parser')
 
         if la is None:
             # scrape first 5?
