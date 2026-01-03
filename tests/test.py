@@ -10,6 +10,21 @@ def test_seed():
     ScrapeText.seed_check()
     assert True # placeholder
 
+@pytest.mark.scrape
+def test_seed():
+    ScrapeText.scrape_deloitte()
+    assert True # placeholder
+
+@pytest.mark.scrape
+def test_seed():
+    ScrapeText.scrape_jpmorgan()
+    assert True # placeholder
+
+@pytest.mark.scrape
+def test_seed():
+    ScrapeText.scrape_blackrock()
+    assert True # placeholder
+
 
 
 @pytest.mark.translate
