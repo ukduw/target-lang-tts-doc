@@ -4,7 +4,7 @@ from scrape import ScrapeText
 from selective_translate import SelectiveTranslate
 from tts import TextToSpeech
 
-
+    # save .html file snapshots for each url (rather than brittle tests via live-site requests...)
 @pytest.mark.scrape
 def test_seed():
     ScrapeText.seed_check()
@@ -66,6 +66,7 @@ def test_determine_short_sentences_to_be_translated():
     ("Excuse me, ...", "", ""),
     ("", "", ""),
     ("", "", ""),
+        # sentence, target language, translated result
 ])
 def test_translate_replace_text(test_phrases, end_lang, result):
     translated = SelectiveTranslate.translate_replace_text(test_phrases, end_lang)
