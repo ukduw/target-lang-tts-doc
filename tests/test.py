@@ -52,9 +52,9 @@ def test_dictionary_check():
     assert True
 
 @pytest.mark.translate
-def test_sentence_length_check():
+def test_determine_short_sentences_to_be_translated():
     sentences = ["First sentence.", "The second sentence is longer.", "The third sentence is longer than both the first and second combined."]
-    length_checked, sentences_to_translate = SelectiveTranslate.sentence_length_check(sentences)
+    length_checked, sentences_to_translate = SelectiveTranslate.determine_short_sentences_to_be_translated(sentences)
     assert length_checked == ["First sentence.", "The second sentence is longer."] # only sentences <= 8 words should be returned
     assert sentences_to_translate == 1
         # e.g. func finds total number of sentences and average length of sentences
