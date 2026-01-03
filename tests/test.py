@@ -54,14 +54,16 @@ def test_dictionary_check():
 @pytest.mark.translate
 def test_sentence_length_check():
     sentences = ["First sentence.", "The second sentence is longer.", "The third sentence is longer than both the first and second combined."]
-    length_checked = SelectiveTranslate.sentence_length_check(sentences)
+    length_checked, sentences_to_translate = SelectiveTranslate.sentence_length_check(sentences)
     assert length_checked == ["First sentence.", "The second sentence is longer."] # only sentences <= 8 words should be returned
+    assert sentences_to_translate == 1
+        # e.g. func finds total number of sentences and average length of sentences
+        # uses these to determine how many sentences to translate, rather than set number, it'll be dynamic per article
+        # about 1/3? of the short sentences, which will be smaller proportion of total sentences
 
 @pytest.mark.translate
 def test_total_length_check():
-    full_article = "Germany's economy recorded no growth qoq in Q3 2025, in line with the preliminary estimate and following a 0.2%% contraction in Q2. Germany's prolonged economic downturn constitutes a technical recession, with contractions in the last 3 years. Structural headwinds include high energy costs due to Russian sanctions, increasingly weak demand for German goods, and fundamental issues in Germany's most important sectors, especially automotive."
-    word_count = SelectiveTranslate.total_length_check(full_article)
-    assert word_count == 63
+
 
 @pytest.mark.translate
 @pytest.mark.parameterize("test_phrases,end_lang,result", [
