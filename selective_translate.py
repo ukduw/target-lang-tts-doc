@@ -32,10 +32,7 @@ class SelectiveTranslate:
     def dictionary_check(self):
         return
     
-    def sentence_length_check(self):
-        return
-    
-    def total_length_check(self):
+    def determine_short_sentences_to_be_translated(self):
         return
 
     def translate_replace_text(self):
