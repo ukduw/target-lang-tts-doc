@@ -100,4 +100,17 @@ class ScrapeText:
                 # needs logic to deal with titles, ignore figures and captions...
             return # list, [most recent title string, article text]
         
+    def scrape_substack(self, source, la):
+        ss_soup = BeautifulSoup(source, 'html.parser')
+
+        if la is None:
+            # scrape first 5?
+            return # list, [most recent title string, article text]
+        else:
+            # iterate over titles until la matches
+            # append urls to list
+            # scrape them for article text
+                # needs logic to deal with titles, ignore figures and captions...
+            return # list, [most recent title string, article text]
+        
         
