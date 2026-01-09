@@ -9,7 +9,7 @@ import json
 # 1) Deloitte - Weekly global economic update
     # 1/week, weds, all html
     # most straightforward and consistent by far
-    # https://www.deloitte.com/us/en/insights/topics/economy/global-economic-outlook/weekly-update/weekly-update-2025-06.html
+    # https://www.deloitte.com/us/en/insights/topics/economy/global-economic-outlook/weekly-update.html
 
 # 3) JP Morgan - Market Insights
     # no clear schedule, all kinds of different html structures, pdfs, and charts...
@@ -24,7 +24,7 @@ import json
 # ?) ...substacks?
 
 
-deloitte_url = "https://www.deloitte.com/us/en/insights/topics/economy/global-economic-outlook/weekly-update/weekly-update-2025-06.html"
+deloitte_url = "https://www.deloitte.com/us/en/insights/topics/economy/global-economic-outlook/weekly-update.html"
 example_url = "https://www.deloitte.com/us/en/insights/topics/economy/asia-pacific/japan-economic-outlook.html"
     # or navigate from root? don't know if same url is reused/updated
 
