@@ -31,6 +31,8 @@ example_url = "https://www.deloitte.com/us/en/insights/topics/economy/asia-pacif
 jpmorgan_url = "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/"
 blackrock_url = "https://www.blackrock.com/us/individual/insights"
 
+substack_url = "placeholder"
+
 
 class ScrapeText:
 
@@ -42,10 +44,12 @@ class ScrapeText:
         del_la = last_article.get("deloitte")
         jpm_la = last_article.get("jpmorgan")
         br_la = last_article.get("blackrock")
+        ss_la = last_article.get("substack") # e.g. if i follow SS's, can use "following" page as aggregator?
 
         ScrapeText.scrape_deloitte(deloitte_url, del_la)
         ScrapeText.scrape_jpmorgan(jpmorgan_url, jpm_la)
         ScrapeText.scrape_blackrock(blackrock_url, br_la)
+        ScrapeText.scrape_substack(substack_url, ss_la)
 
         # alter last_article dict
             # e.g. return last_article strings from below funcs...
@@ -112,5 +116,4 @@ class ScrapeText:
             # scrape them for article text
                 # needs logic to deal with titles, ignore figures and captions...
             return # list, [most recent title string, article text]
-        
         
