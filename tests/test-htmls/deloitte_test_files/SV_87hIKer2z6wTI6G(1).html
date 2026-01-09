@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html class="JFEScope" lang="EN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Qualtrics Survey | Qualtrics Experience Management</title>
+    
+        <link rel="dns-prefetch" href="https://eu.qualtrics.com/WRQualtricsShared/">
+        <link rel="preconnect" href="https://eu.qualtrics.com/WRQualtricsShared/">
+    
+    <meta name="description" content="The most powerful, simple and trusted way to gather experience data. Start your journey to experience management and try a free account today.">
+    <meta name="robots" content="noindex">
+    <meta id="meta-viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.5">
+    <meta property="og:title" content="Qualtrics Survey | Qualtrics Experience Management">
+    <meta property="og:description" content="The most powerful, simple and trusted way to gather experience data. Start your journey to experience management and try a free account today.">
+    
+    <script>(function(w) {
+  'use strict';
+  if (w.history && w.history.replaceState) {
+    var path = w.location.pathname;
+    var jfePathRegex = /^\/jfe\d+\//;
+
+    if (jfePathRegex.test(path)) {
+      w.history.replaceState(null, null, w.location.href.replace(path, path.replace(jfePathRegex, '/jfe/')));
+    }
+  }
+})(window);
+</script>
+<link rel="apple-touch-icon" href="https://survey.deloitte.com/brand-management/apple-touch-icon"><link type="image/x-icon" rel="icon" href="https://survey.deloitte.com/CP/Graphic.php?IM=IM_cup6ekJevqrRnh4"><script data-runid="5554323007775838">window.Q_CustomJSContextQID = "QID1";window.Q_CustomJSContextQID = "QID1";
+Qualtrics.SurveyEngine.addOnload(function()
+{
+	/*Place your JavaScript here to run when the page loads*/
+	     function getFocusable() {
+        return Array.from(document.querySelectorAll(
+            'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        )).filter(el =>
+            !el.disabled &&
+            el.tabIndex !== -1 &&
+            el.offsetParent !== null
+        );
+    }
+    function getSiblingLabel(input) {
+        // Forward
+        let sib = input.nextElementSibling;
+        while (sib) {
+            if (sib.matches && sib.matches('span.LabelWrapper')) {
+                const lbl = sib.querySelector('label');
+                if (lbl) return lbl;
+            }
+            sib = sib.nextElementSibling;
+        }
+        // Backward
+        sib = input.previousElementSibling;
+        while (sib) {
+            if (sib.matches && sib.matches('span.LabelWrapper')) {
+                const lbl = sib.querySelector('label');
+                if (lbl) return lbl;
+            }
+            sib = sib.previousElementSibling;
+        }
+        return null;
+    }
+
+    let lastHighlightedLabel = null;
+
+    document.addEventListener('keydown', function (e) {
+        const focusable = getFocusable();
+        if ((e.key === 'Tab' || e.keyCode === 9)) {
+            const index = focusable.indexOf(document.activeElement);
+            if (index !== -1) {
+                e.preventDefault();
+                let nextIdx;
+                if (!e.shiftKey) {
+                    nextIdx = (index + 1) % focusable.length;
+                } else {
+                    nextIdx = (index - 1 + focusable.length) % focusable.length;
+                }
+                focusable[nextIdx].focus();
+            }
+        }
+        if (
+            (e.key === 'Enter' || e.keyCode === 13) &&
+            document.activeElement &&
+            document.activeElement.tagName === 'INPUT' &&
+            document.activeElement.type === 'radio'
+        ) {
+            e.preventDefault();
+            document.activeElement.checked = !document.activeElement.checked;
+            var evt = new Event('change', { bubbles: true });
+            document.activeElement.dispatchEvent(evt);
+
+            const label = getSiblingLabel(document.activeElement);
+            if (label) label.click();
+
+            setTimeout(() => {
+                const updatedFocusable = getFocusable();
+                if (updatedFocusable.length > 0) updatedFocusable[0].focus();
+            }, 100);
+        }
+    });
+
+    document.addEventListener('focusin', function (e) {
+        if (lastHighlightedLabel) {
+            lastHighlightedLabel.style.outline = "";
+            lastHighlightedLabel = null;
+        }
+        if (e.target.tagName === 'INPUT' && e.target.type === 'radio') {
+            const label = getSiblingLabel(e.target);
+            if (label) {
+                label.style.outline = "2px solid #007CB0";
+                label.style.outlineOffset = "-2px";
+                lastHighlightedLabel = label;
+            }
+        }
+    });
+
+    (function initialFocus() {
+        const focusable = getFocusable();
+        if (focusable.length > 0) focusable[0].focus();
+    })();
+
+   
+ 
+
+    });
+
+
+
+Qualtrics.SurveyEngine.addOnReady(function()
+{
+	// Hide the Next button
+	this.hideNextButton();
+
+	// Save reference to current question
+	var that = this;
+
+	// When the respondent selects an option, move to the next question
+	jQuery('.ChoiceStructure input[type=radio]').on('click', function() {
+		that.clickNextButton();
+	});
+});
+
+Qualtrics.SurveyEngine.addOnUnload(function()
+{
+	/*Place your JavaScript here to run when the page is unloaded*/
+});;delete window.Q_CustomJSContextQID;; delete window.Q_CustomJSContextQID;</script><script data-runid="5554323007775838">Qualtrics.SurveyEngine.addOnload(Qualtrics.uniformLabelHeight);</script><script data-runid="5554323007775838">
+//TM6 Question Text Cell Padding
+	//JFE
+	Page.on('ready:imagesLoaded',function() {
+		var t = jQuery(".QuestionText table");
+	  for (i=0; i<t.length; i++) {
+	    if (t[i].cellPadding != undefined) {
+	      var p = t[i].cellPadding + "px";
+	      t.eq(i).find("th").css("padding",p);
+	      t.eq(i).find("td").css("padding",p);
+	    }
+	  }
+	});
+	//SE
+	jQuery(window).load(function() {
+		if (jQuery("div").hasClass("JFE") == false) {
+	    var t = jQuery(".QuestionText table");
+	    for (i=0; i<t.length; i++) {
+	      if (t[i].cellPadding != undefined) {
+	        var p = t[i].cellPadding + "px";
+	        t.eq(i).find("th").css("padding",p);
+	        t.eq(i).find("td").css("padding",p);
+	      }
+	    }
+		};
+	});
+//TM21 iOS Text Box Width Fix
+	//JFE
+	Page.on('ready:imagesLoaded',function() {
+		function isIE () {
+	  	var myNav = navigator.userAgent.toLowerCase();
+	  	return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+		}
+		if (!isIE()) {
+			var mq = window.matchMedia( "(max-width: 480px)" );
+			if (mq.matches == true) {
+				jQuery(".Skin .MC .TextEntryBox").css("width","100%");
+				jQuery(".Skin .TE .ESTB .InputText").css("width","100%");
+				jQuery(".Skin .TE .FORM .InputText").css("width","100%");
+				jQuery(".Skin .TE .ML .InputText").css("width","100%");
+				jQuery(".Skin .TE .PW .InputText").css("width","100%");
+				jQuery(".Skin .TE .SL .InputText").css("width","100%");
+				jQuery(".Skin .TE .FollowUp .InputText").css("width","100%");
+			};
+		};
+	});
+	//SE
+	jQuery(window).load(function() {
+		function isIE () {
+	  	var myNav = navigator.userAgent.toLowerCase();
+	  	return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+		}
+		if (!isIE()) {
+			var mq = window.matchMedia( "(max-width: 480px)" );
+			if (jQuery("div").hasClass("JFE") == false && mq.matches == true) {
+				jQuery(".Skin .MC .TextEntryBox").css("width","100%");
+				jQuery(".Skin .TE .ESTB .InputText").css("width","100%");
+				jQuery(".Skin .TE .FORM .InputText").css("width","100%");
+				jQuery(".Skin .TE .ML .InputText").css("width","100%");
+				jQuery(".Skin .TE .PW .InputText").css("width","100%");
+				jQuery(".Skin .TE .SL .InputText").css("width","100%");
+				jQuery(".Skin .TE .FollowUp .InputText").css("width","100%");
+			};
+		};
+	});
+</script><script data-runid="5554323007775838">
+//Wrapping up those pesky SE labels like Christmas
+jQuery(window).load(function() {
+		if (jQuery("div").hasClass("JFE") == false) {
+	    var mcs = jQuery(".Skin .MC span.LabelWrapper");
+			for (i = 0; i < mcs.length; i++) {
+				mcs.eq(i).find("label").wrapInner("<span></span>");
+			}
+	};
+});
+</script><script data-runid="5554323007775838">
+	Page.on('ready:imagesLoaded',function() {
+	if (jQuery(".ProgressBarContainer label").length != 0  && jQuery(".SystemEndOfSurvey").length == 0){
+jQuery("#ProgressBar").addClass("verbose");
+	}
+	});
+</script></head>
+    <body id="SurveyEngineBody" style="direction: ltr;">
+    <noscript><style>#pace{display: none;}</style><div style="padding:8px 15px;font-family:Helvetica,Arial,sans-serif;background:#fcc;border:1px solid #c55">Javascript is required to load this page.</div></noscript>
+    
+        <style type="text/css">#pace{background:#fff;position:absolute;top:0;bottom:0;left:0;right:0;z-index:1}#pace::before{content:'';display:block;position:fixed;top:30%;right:50%;width:50px;height:50px;border:6px solid transparent;border-top-color:#0b6ed0;border-left-color:#0b6ed0;border-radius:80px;animation:q 1s linear infinite;margin:-33px -33px 0 0;box-sizing:border-box}@keyframes q{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+</style>
+        
+    
+    <script type="text/javascript">
+      window.QSettings = {
+          
+        jfeVersion: "d7e7770c72fb9428cad4691d5fe20bb4ec02a522",
+        publicPath: "/jfe/static/dist/",
+        cbs: [], bootstrapSkin: null, ab: false,
+        getPT: function(cb) {
+          if (this.pt !== undefined) {
+            cb(this.success, this.pt);
+          } else {
+            this.cbs.push(cb);
+          }
+        },
+        setPT: function(s, pt) {
+          this.success = s;
+          this.pt = pt;
+          if (this.cbs.length) {
+            for (var i = 0; i < this.cbs.length; i++) {
+              this.cbs[i](s, pt);
+            }
+          }
+        }
+      };
+    </script>
+    
+    <script>(()=>{"use strict";var e,r,t,a,o,c={},n={};function d(e){var r=n[e];if(void 0!==r)return r.exports;var t=n[e]={id:e,loaded:!1,exports:{}};return c[e].call(t.exports,t,t.exports,d),t.loaded=!0,t.exports}d.m=c,e=[],d.O=(r,t,a,o)=>{if(!t){var c=1/0;for(l=0;l<e.length;l++){for(var[t,a,o]=e[l],n=!0,f=0;f<t.length;f++)(!1&o||c>=o)&&Object.keys(d.O).every(e=>d.O[e](t[f]))?t.splice(f--,1):(n=!1,o<c&&(c=o));if(n){e.splice(l--,1);var i=a();void 0!==i&&(r=i)}}return r}o=o||0;for(var l=e.length;l>0&&e[l-1][2]>o;l--)e[l]=e[l-1];e[l]=[t,a,o]},d.n=e=>{var r=e&&e.__esModule?()=>e.default:()=>e;return d.d(r,{a:r}),r},t=Object.getPrototypeOf?e=>Object.getPrototypeOf(e):e=>e.__proto__,d.t=function(e,a){if(1&a&&(e=this(e)),8&a)return e;if("object"==typeof e&&e){if(4&a&&e.__esModule)return e;if(16&a&&"function"==typeof e.then)return e}var o=Object.create(null);d.r(o);var c={};r=r||[null,t({}),t([]),t(t)];for(var n=2&a&&e;"object"==typeof n&&!~r.indexOf(n);n=t(n))Object.getOwnPropertyNames(n).forEach(r=>c[r]=()=>e[r]);return c.default=()=>e,d.d(o,c),o},d.d=(e,r)=>{for(var t in r)d.o(r,t)&&!d.o(e,t)&&Object.defineProperty(e,t,{enumerable:!0,get:r[t]})},d.f={},d.e=e=>Promise.all(Object.keys(d.f).reduce((r,t)=>(d.f[t](e,r),r),[])),d.u=e=>"c/"+{196:"vendors~recaptchav3",233:"db",438:"vendors~mockForm",821:"barrel-roll",905:"ss",939:"bf",1044:"matrix",1075:"mc",1192:"meta",1205:"timing",1365:"hmap",1543:"recaptchav3",1778:"slide",1801:"fade",2042:"jsApi",2091:"advance-button-template",2292:"hotspot",2436:"slider",2552:"vendors~scoring~cs~matrix",2562:"flip",2603:"mockForm",2801:"fancybox",3432:"mp",4522:"scoring",4863:"dd",5321:"vendors~mockForm~response-summary~fileupload",5330:"fileupload",5453:"default~cs~slider~ss",5674:"pgr",5957:"response-summary",6023:"vendors~fileupload",6198:"te",6218:"ro",6246:"focus-handler",6255:"captcha",6500:"default~hl~hotspot~matrix",6507:"prototype",7211:"sbs",7529:"cs",7685:"preview",7719:"default~hmap~pgr~ro~te~timing",8095:"default~cs~slider",8393:"draw",8606:"default~captcha~cs~db~dd~draw~fileupload~hmap~hl~hotspot~matrix~mc~meta~pgr~ro~sbs~slider~ss~te~timing",9679:"toc",9811:"hl"}[e]+"."+{196:"36b1eea7d53b542f0938",233:"8ba9f6447cd314fbb68a",438:"53d5364f2fde015d63eb",821:"7889bb8e29b6573a7c1e",905:"351d3164dfd98410d564",939:"eec2597b947c36022f6d",1044:"d8d7465fc033fbb10620",1075:"86a63d9fd6b94fccd78b",1192:"2bda7fa2af76817782a5",1205:"e0a338ca75eae4b40cc1",1365:"b3a7378eb91cc2c32d41",1543:"0c7be974c5976b4baac4",1778:"89aa23ad976cab36539d",1801:"8cb2d1667aca0bc1260e",2042:"c48c082656b18079aa7e",2091:"4f0959084e4a4a187d1d",2292:"14fd8d7b863312b03015",2436:"96ce9dfbc69cf4a6f014",2552:"7cd2196cef0e70bb9e8a",2562:"3266dde7e4660ffcef3a",2603:"595d6f07f098d2accedf",2801:"685cee5836e319fa57a8",3432:"6ae4057caed354cea4bd",4522:"1beb1b30ccc2fa30924f",4863:"4a0994a3732ac4fec406",5321:"41b49ced3a7a9cce58ab",5330:"4e241617d0d8f9638bed",5453:"171b59120e19c43bc4c6",5674:"144a9eb1a74ebd10fb2f",5957:"18b07be3e10880ac7370",6023:"2f608006811a8be8971c",6198:"31e404ce9bb91ad2fdc1",6218:"3cb64ba46db80f90121a",6246:"ba7b22b6a40782e5e004",6255:"a511708ee09ee539c882",6500:"e988cfdc3a56d687c346",6507:"63afbf731c56ba97ae7b",7211:"2d043279f45787cdbc6a",7529:"6440499b8bf1aaf62693",7685:"1241170f420176c2c6ef",7719:"8714f0d6579c8e712177",8095:"3b318c0e91b8cce117d5",8393:"2a48f184a447969fff1f",8606:"017a626bdaafbf05c221",9679:"20b914cfa638dfe959cc",9811:"e3e744cd3ab59c8be98b"}[e]+".min.js",d.miniCssF=e=>"fancybox.0bb59945b9873f54214a.min.css",d.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(e){if("object"==typeof window)return window}}(),d.o=(e,r)=>Object.prototype.hasOwnProperty.call(e,r),a={},o="javascriptformengine:",d.l=(e,r,t,c)=>{if(a[e])a[e].push(r);else{var n,f;if(void 0!==t)for(var i=document.getElementsByTagName("script"),l=0;l<i.length;l++){var b=i[l];if(b.getAttribute("src")==e||b.getAttribute("data-webpack")==o+t){n=b;break}}n||(f=!0,(n=document.createElement("script")).charset="utf-8",n.timeout=120,d.nc&&n.setAttribute("nonce",d.nc),n.setAttribute("data-webpack",o+t),n.src=e),a[e]=[r];var s=(r,t)=>{n.onerror=n.onload=null,clearTimeout(u);var o=a[e];if(delete a[e],n.parentNode&&n.parentNode.removeChild(n),o&&o.forEach(e=>e(t)),r)return r(t)},u=setTimeout(s.bind(null,void 0,{type:"timeout",target:n}),12e4);n.onerror=s.bind(null,n.onerror),n.onload=s.bind(null,n.onload),f&&document.head.appendChild(n)}},d.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},d.nmd=e=>(e.paths=[],e.children||(e.children=[]),e),d.p="",(()=>{if("undefined"!=typeof document){var e=e=>new Promise((r,t)=>{var a=d.miniCssF(e),o=d.p+a;if(((e,r)=>{for(var t=document.getElementsByTagName("link"),a=0;a<t.length;a++){var o=(n=t[a]).getAttribute("data-href")||n.getAttribute("href");if("stylesheet"===n.rel&&(o===e||o===r))return n}var c=document.getElementsByTagName("style");for(a=0;a<c.length;a++){var n;if((o=(n=c[a]).getAttribute("data-href"))===e||o===r)return n}})(a,o))return r();((e,r,t,a,o)=>{var c=document.createElement("link");c.rel="stylesheet",c.type="text/css",d.nc&&(c.nonce=d.nc),c.onerror=c.onload=t=>{if(c.onerror=c.onload=null,"load"===t.type)a();else{var n=t&&t.type,d=t&&t.target&&t.target.href||r,f=new Error("Loading CSS chunk "+e+" failed.\n("+n+": "+d+")");f.name="ChunkLoadError",f.code="CSS_CHUNK_LOAD_FAILED",f.type=n,f.request=d,c.parentNode&&c.parentNode.removeChild(c),o(f)}},c.href=r,t?t.parentNode.insertBefore(c,t.nextSibling):document.head.appendChild(c)})(e,o,null,r,t)}),r={3454:0};d.f.miniCss=(t,a)=>{r[t]?a.push(r[t]):0!==r[t]&&{2801:1}[t]&&a.push(r[t]=e(t).then(()=>{r[t]=0},e=>{throw delete r[t],e}))}}})(),(()=>{var e={3454:0};d.f.j=(r,t)=>{var a=d.o(e,r)?e[r]:void 0;if(0!==a)if(a)t.push(a[2]);else if(3454!=r){var o=new Promise((t,o)=>a=e[r]=[t,o]);t.push(a[2]=o);var c=d.p+d.u(r),n=new Error;d.l(c,t=>{if(d.o(e,r)&&(0!==(a=e[r])&&(e[r]=void 0),a)){var o=t&&("load"===t.type?"missing":t.type),c=t&&t.target&&t.target.src;n.message="Loading chunk "+r+" failed.\n("+o+": "+c+")",n.name="ChunkLoadError",n.type=o,n.request=c,a[1](n)}},"chunk-"+r,r)}else e[r]=0},d.O.j=r=>0===e[r];var r=(r,t)=>{var a,o,[c,n,f]=t,i=0;if(c.some(r=>0!==e[r])){for(a in n)d.o(n,a)&&(d.m[a]=n[a]);if(f)var l=f(d)}for(r&&r(t);i<c.length;i++)o=c[i],d.o(e,o)&&e[o]&&e[o][0](),e[o]=0;return d.O(l)},t=self.webpackChunkjavascriptformengine=self.webpackChunkjavascriptformengine||[];t.forEach(r.bind(null,0)),t.push=r.bind(null,t.push.bind(t))})()})();</script>
+    <script src="./jfeLib.41e905943427321fa036.min.js.download" crossorigin="anonymous"></script>
+    <script src="./jfe.236a1d43c0349abd57b2.min.js.download" crossorigin="anonymous"></script>
+
+
+    <link href="./stylesheet.css" rel="stylesheet">
+
+    <link id="rtlStyles" rel="stylesheet" type="text/css">
+    <style id="customStyles">.Skin .SkinInner{
+
+height: 450px!important;
+padding: 12px 10px 0px 10px!important;
+flex-direction: column!important;
+justify-content: center!important;
+align-items: flex-start!important;
+gap: 12px !important;
+border-radius: 25px!important;
+
+background:#E6FFFF!important;
+box-shadow: 3px 5px 15px 0 rgba(31, 31, 31, 0.25)!important;
+}
+
+.QuestionText{color: #1F1F1F!important;
+/*font-family: "Adelle Sans Cnd";*/
+padding: 40px 0px 40px 0px !important;
+font-size: 18px!important;
+font-style: normal!important;
+font-weight: 800!important;
+line-height: 22px!important;}
+
+.SingleAnswer{
+  display: flex !important;
+padding: 8px !important;
+align-items: center !important;
+gap: 10px !important;
+align-self: stretch !important;
+
+border-radius: 25px !important;
+border: 0.7px solid #1F1F1F !important;
+background: #A2E1E1 !important;
+
+color: #1F1F1F !important;
+/*font-family: "Adelle Sans Cnd";*/
+font-size: 14px !important;
+font-style: normal !important;
+font-weight: 400 !important;
+line-height: 95% !important;
+}
+@media only screen and (max-width: 770px) {
+    .Skin #LogoContainer {
+        padding: 0px !important;
+    }
+}
+
+
+.Skin label.SingleAnswer > span::before {
+  border:2px solid #1f1f1f !important;
+  font-size: 18px !important;
+}
+
+#BrandingFooter{
+  display: none !important;
+}
+
+#Plug a{
+  display: none !important;
+}
+
+.QuestionText {
+      padding: 0px 0px 20px 0px !important;
+  }
+
+  .EndOfSurvey{
+    color: #1F1F1F !important;
+    font-size: 18px;
+  }
+
+ .Skin #HeaderContainer {
+        display: none !important;
+    }
+   .Skin #LogoContainer {
+padding: 20px 0px 20px 0px !important;
+}
+</style>
+
+    <style>
+      .JFEScope .questionFocused   .advanceButtonContainer {transition:opacity .3s!important;visibility:unset;opacity:1}
+      .JFEScope .questionUnfocused .advanceButtonContainer, .advanceButtonContainer {transition:opacity .3s!important;visibility:hidden;opacity:0}
+      .Skin .Bipolar .bipolar-mobile-header, .Skin .Bipolar .desktop .bipolar-mobile-header, .Skin .Bipolar .mobile .ColumnLabelHeader {display: none}
+
+      /* Change color of question validation warnings */
+      .Skin .ValidationError.Warn {color: #e9730c;}
+
+      /* Hide mobile preview scrollbar for Chrome, Safari and Opera */
+      html.MobilePreviewFrame::-webkit-scrollbar { display: none; }
+
+      /* Hide mobile preview scrollbar for IE and Edge */
+      html.MobilePreviewFrame { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+    <style type="text/css">.accessibility-hidden{height:0;width:0;overflow:hidden;position:absolute;left:-999px}</style>
+    <div id="polite-announcement" class="accessibility-hidden" aria-live="polite" aria-atomic="true">Page Loaded</div>
+    <div id="assertive-announcement" class="accessibility-hidden" aria-live="assertive" role="alert" aria-atomic="true"></div>
+    <script type="text/javascript">
+      (function () {
+        var o = {};
+        try {
+          Object.defineProperty(o,'compat',{value:true,writable:true,enumerable:true,configurable:true});
+        } catch (e) {};
+        if (o.compat !== true || document.addEventListener === undefined) {
+          window.location.pathname = '/jfe/incompatibleBrowser';
+        }
+
+        var fv = document.createElement('link');
+        fv.rel = 'apple-touch-icon';
+        fv.href = "/brand-management/apple-touch-icon";
+        document.getElementsByTagName('head')[0].appendChild(fv);
+      })();
+      QSettings.ab = false;
+      document.title = "Qualtrics Survey | Qualtrics Experience Management";
+      
+      (function(s) {
+        QSettings.bootstrapSkin = s;
+        var sp = document.getElementById('skinPrefetch');
+        if (sp) {
+          sp.innerHTML = s;
+        }
+      })("\n<meta name=\"HandheldFriendly\" content=\"true\" />\n<meta name = \"viewport\" content = \"user-scalable = yes, maximum-scale=10, minimum-scale=1, initial-scale = 1, width = device-width\" />\n<div class='Skin'>\n\t<div id=\"Overlay\"></div>\n\t<div id=\"Wrapper\">\n\t\t<div class='SkinInner'>\n\t\t\t<div id='LogoContainer'>\n\t\t\t\t<div id='Logo'><img src=\"https://survey.deloitte.com/CP/Graphic.php?IM=IM_TJZIIlB6LKndTji\" /></div>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div id='HeaderContainer'>\n\t\t\t\t\n\t\t\t\t<div id='Header'>{~Header~}</div>\n\t\t\t</div>\n\t\t\t<div id='SkinContent'>\n\t\t\t\t<div id='Questions'>{~Question~}</div>\n\t\t\t\t<div id='Buttons'>{~Buttons~}</div>\n\t\t\t</div>\n\t\t\t<div id='ProgressBar'>{~ProgressBar~}</div>\n\t\t</div>\n\t\t<div id='Footer'>{~Footer~}</div>\n\t\t<div id='BrandingFooter'>Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (&ldquo;DTTL&rdquo;), its global network of member firms, and their related entities (collectively, the &ldquo;Deloitte organization&rdquo;). DTTL (also referred to as &ldquo;Deloitte Global&rdquo;) and each of its member firms and related entities are legally separate and independent entities, which cannot obligate or bind each other in respect of third parties. DTTL and each DTTL member firm and related entity is liable only for its own acts and omissions, and not those of each other. DTTL does not provide services to clients. Please see <a href=\"http://www.deloitte.com/about\" style=\"text-decoration:none; color: blue;\" target=\"_blank\">www.deloitte.com/about</a> to learn more.<br />\n<br />\nThis communication and any attachment to it is for internal distribution among personnel of Deloitte Touche Tohmatsu Limited (&ldquo;DTTL&rdquo;), its global network of member firms and their related entities (collectively, the &ldquo;Deloitte organization&rdquo;). It may contain confidential information and is intended solely for the use of the individual or entity to whom it is addressed. If you are not the intended recipient, please notify us immediately and then delete this communication and all copies of it on your system. Please do not use this communication in any way. None of DTTL, its member firms, related entities, employees or agents shall be responsible for any loss or damage whatsoever arising directly or indirectly in connection with any person relying on this communication. DTTL and each of its member firms, and their related entities, are legally separate and independent entities.<br />\n<br />\n&copy; 2025. For information, contact Deloitte Global</div>\n\t\t<div id='PushStickyFooter'></div>\n\t</div>\n\t<div id=\"Plug\" style=\"display:block !important;\"><a href=\"https://www.qualtrics.com/powered-by-qualtrics/?utm_source=internal%2Binitiatives&utm_medium=survey%2Bpowered%2Bby%2Bqualtrics&utm_content={~BrandID~}&utm_survey_id={~SurveyID~}\" target=\"_blank\" aria-label=\"{~PlugLabel~}\">{~Plug~}</a></div>\n</div>\n<script>Qualtrics.SurveyEngine.addOnload(Qualtrics.uniformLabelHeight);<\/script>\n\n<script>\n//TM6 Question Text Cell Padding\n\t//JFE\n\tPage.on('ready:imagesLoaded',function() {\n\t\tvar t = jQuery(\".QuestionText table\");\n\t  for (i=0; i<t.length; i++) {\n\t    if (t[i].cellPadding != undefined) {\n\t      var p = t[i].cellPadding + \"px\";\n\t      t.eq(i).find(\"th\").css(\"padding\",p);\n\t      t.eq(i).find(\"td\").css(\"padding\",p);\n\t    }\n\t  }\n\t});\n\t//SE\n\tjQuery(window).load(function() {\n\t\tif (jQuery(\"div\").hasClass(\"JFE\") == false) {\n\t    var t = jQuery(\".QuestionText table\");\n\t    for (i=0; i<t.length; i++) {\n\t      if (t[i].cellPadding != undefined) {\n\t        var p = t[i].cellPadding + \"px\";\n\t        t.eq(i).find(\"th\").css(\"padding\",p);\n\t        t.eq(i).find(\"td\").css(\"padding\",p);\n\t      }\n\t    }\n\t\t};\n\t});\n//TM21 iOS Text Box Width Fix\n\t//JFE\n\tPage.on('ready:imagesLoaded',function() {\n\t\tfunction isIE () {\n\t  \tvar myNav = navigator.userAgent.toLowerCase();\n\t  \treturn (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;\n\t\t}\n\t\tif (!isIE()) {\n\t\t\tvar mq = window.matchMedia( \"(max-width: 480px)\" );\n\t\t\tif (mq.matches == true) {\n\t\t\t\tjQuery(\".Skin .MC .TextEntryBox\").css(\"width\",\"100%\");\n\t\t\t\tjQuery(\".Skin .TE .ESTB .InputText\").css(\"width\",\"100%\");\n\t\t\t\tjQuery(\".Skin .TE .FORM .InputText\").css(\"width\",\"100%\");\n\t\t\t\tjQuery(\".Skin .TE .ML .InputText\").css(\"width\",\"100%\");\n\t\t\t\tjQuery(\".Skin .TE .PW .InputText\").css(\"width\",\"100%\");\n\t\t\t\tjQuery(\".Skin .TE .SL .InputText\").css(\"width\",\"100%\");\n\t\t\t\tjQuery(\".Skin .TE .FollowUp .InputText\").css(\"width\",\"100%\");\n\t\t\t};\n\t\t};\n\t});\n\t//SE\n\tjQuery(window).load(function() {\n\t\tfunction isIE () {\n\t  \tvar myNav = navigator.userAgent.toLowerCase();\n\t  \treturn (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;\n\t\t}\n\t\tif (!isIE()) {\n\t\t\tvar mq = window.matchMedia( \"(max-width: 480px)\" );\n\t\t\tif (jQuery(\"div\").hasClass(\"JFE\") == false && mq.matches == true) {\n\t\t\t\tjQuery(\".Skin .MC .TextEntryBox\").css(\"width\",\"100%\");\n\t\t\t\tjQuery(\".Skin .TE .ESTB .InputText\").css(\"width\",\"100%\");\n\t\t\t\tjQuery(\".Skin .TE .FORM .InputText\").css(\"width\",\"100%\");\n\t\t\t\tjQuery(\".Skin .TE .ML .InputText\").css(\"width\",\"100%\");\n\t\t\t\tjQuery(\".Skin .TE .PW .InputText\").css(\"width\",\"100%\");\n\t\t\t\tjQuery(\".Skin .TE .SL .InputText\").css(\"width\",\"100%\");\n\t\t\t\tjQuery(\".Skin .TE .FollowUp .InputText\").css(\"width\",\"100%\");\n\t\t\t};\n\t\t};\n\t});\n<\/script>\n<script>\n//Wrapping up those pesky SE labels like Christmas\njQuery(window).load(function() {\n\t\tif (jQuery(\"div\").hasClass(\"JFE\") == false) {\n\t    var mcs = jQuery(\".Skin .MC span.LabelWrapper\");\n\t\t\tfor (i = 0; i < mcs.length; i++) {\n\t\t\t\tmcs.eq(i).find(\"label\").wrapInner(\"<span></span>\");\n\t\t\t}\n\t};\n});\n<\/script>\n<script>\n\tPage.on('ready:imagesLoaded',function() {\n\tif (jQuery(\".ProgressBarContainer label\").length != 0  && jQuery(\".SystemEndOfSurvey\").length == 0){\njQuery(\"#ProgressBar\").addClass(\"verbose\");\n\t}\n\t});\n<\/script>\n\n<style>/*\n.Skin {\n font-family: Calibri!important;\n}\n*/\n.Skin #BrandingFooter, .Skin #Footer {\nmargin-top: 0 !important; font-size:10px !important;\n}\n\n</style>\n");
+      
+      
+      (function() {
+        var fv = document.createElement('link');
+        fv.type = 'image/x-icon';
+        fv.rel = 'icon';
+        fv.href = "https://survey.deloitte.com/CP/Graphic.php?IM=IM_cup6ekJevqrRnh4";
+        document.getElementsByTagName('head')[0].appendChild(fv);
+      }());
+      
+      
+    </script>
+        <script type="text/javascript">
+          (function(appData) {
+            if (appData && typeof appData === 'object' && '__jfefeRenderDocument' in appData) {
+              var doc = appData.__jfefeRenderDocument
+
+              if (doc === 'incompatible') {
+                window.location = '/jfe/incompatibleBrowser';
+                return
+              }
+
+              window.addEventListener('load', function() {
+                // farewell jfe
+                delete window.QSettings
+                delete window.webpackJsonp
+                delete window.jQuery
+                delete window.ErrorWatcher
+                delete window.onLoadCaptcha
+                delete window.experimental
+                delete window.Page
+
+                var keys = Object.keys(window);
+                for (let i in keys) {
+                  var name = keys[i];
+                  if (name.indexOf('jQuery') === 0) {
+                    delete window[name];
+                    break;
+                  }
+                }
+
+                document.open();
+                document.write(doc);
+                document.close();
+              })
+            } else {
+              // prevent document.write from replacing the entire page
+              window.document.write = function() {
+                log.error('document.write is not allowed and has been disabled.');
+              };
+
+              QSettings.setPT(true, appData);
+            }
+          })({"FormSessionID":"FS_8DwnJC3EXyW7nyh","QuestionIDs":["QID1"],"QuestionDefinitions":{"QID1":{"DataExportTag":"Primary Question","QuestionType":"MC","Selector":"SAVR","SubSelector":"TX","DataVisibility":{"Private":false,"Hidden":false},"Configuration":{"QuestionDescriptionOption":"UseText","LabelPosition":"BELOW"},"Choices":{"1":{"Display":"Extremely Informative"},"2":{"Display":"Informative"},"3":{"Display":"Neutral"},"4":{"Display":"Uninformative"},"5":{"Display":"Extremely Uninformative"}},"ChoiceOrder":["1","2","3","4","5"],"Validation":{"Settings":{"ForceResponse":"OFF","ForceResponseType":"ON","Type":"None"}},"Language":{"EN":{"QuestionText":"How informative was this content to you?","Choices":{"1":{"Display":"Extremely Informative"},"2":{"Display":"Informative"},"3":{"Display":"Neutral"},"4":{"Display":"Uninformative"},"5":{"Display":"Extremely Uninformative"}}}},"NextChoiceId":6,"NextAnswerId":1,"QuestionID":"QID1","DynamicChoicesData":[],"QuestionJS":"Qualtrics.SurveyEngine.addOnload(function()\n{\n\t/*Place your JavaScript here to run when the page loads*/\n\t     function getFocusable() {\n        return Array.from(document.querySelectorAll(\n            'a[href], button, textarea, input, select, [tabindex]:not([tabindex=\"-1\"])'\n        )).filter(el =>\n            !el.disabled &&\n            el.tabIndex !== -1 &&\n            el.offsetParent !== null\n        );\n    }\n    function getSiblingLabel(input) {\n        // Forward\n        let sib = input.nextElementSibling;\n        while (sib) {\n            if (sib.matches && sib.matches('span.LabelWrapper')) {\n                const lbl = sib.querySelector('label');\n                if (lbl) return lbl;\n            }\n            sib = sib.nextElementSibling;\n        }\n        // Backward\n        sib = input.previousElementSibling;\n        while (sib) {\n            if (sib.matches && sib.matches('span.LabelWrapper')) {\n                const lbl = sib.querySelector('label');\n                if (lbl) return lbl;\n            }\n            sib = sib.previousElementSibling;\n        }\n        return null;\n    }\n\n    let lastHighlightedLabel = null;\n\n    document.addEventListener('keydown', function (e) {\n        const focusable = getFocusable();\n        if ((e.key === 'Tab' || e.keyCode === 9)) {\n            const index = focusable.indexOf(document.activeElement);\n            if (index !== -1) {\n                e.preventDefault();\n                let nextIdx;\n                if (!e.shiftKey) {\n                    nextIdx = (index + 1) % focusable.length;\n                } else {\n                    nextIdx = (index - 1 + focusable.length) % focusable.length;\n                }\n                focusable[nextIdx].focus();\n            }\n        }\n        if (\n            (e.key === 'Enter' || e.keyCode === 13) &&\n            document.activeElement &&\n            document.activeElement.tagName === 'INPUT' &&\n            document.activeElement.type === 'radio'\n        ) {\n            e.preventDefault();\n            document.activeElement.checked = !document.activeElement.checked;\n            var evt = new Event('change', { bubbles: true });\n            document.activeElement.dispatchEvent(evt);\n\n            const label = getSiblingLabel(document.activeElement);\n            if (label) label.click();\n\n            setTimeout(() => {\n                const updatedFocusable = getFocusable();\n                if (updatedFocusable.length > 0) updatedFocusable[0].focus();\n            }, 100);\n        }\n    });\n\n    document.addEventListener('focusin', function (e) {\n        if (lastHighlightedLabel) {\n            lastHighlightedLabel.style.outline = \"\";\n            lastHighlightedLabel = null;\n        }\n        if (e.target.tagName === 'INPUT' && e.target.type === 'radio') {\n            const label = getSiblingLabel(e.target);\n            if (label) {\n                label.style.outline = \"2px solid #007CB0\";\n                label.style.outlineOffset = \"-2px\";\n                lastHighlightedLabel = label;\n            }\n        }\n    });\n\n    (function initialFocus() {\n        const focusable = getFocusable();\n        if (focusable.length > 0) focusable[0].focus();\n    })();\n\n   \n \n\n    });\n\n\n\nQualtrics.SurveyEngine.addOnReady(function()\n{\n\t// Hide the Next button\n\tthis.hideNextButton();\n\n\t// Save reference to current question\n\tvar that = this;\n\n\t// When the respondent selects an option, move to the next question\n\tjQuery('.ChoiceStructure input[type=radio]').on('click', function() {\n\t\tthat.clickNextButton();\n\t});\n});\n\nQualtrics.SurveyEngine.addOnUnload(function()\n{\n\t/*Place your JavaScript here to run when the page is unloaded*/\n});","SurveyLanguage":"EN"}},"NextButton":null,"PreviousButton":false,"Count":1,"Skipped":0,"NotDisplayed":0,"LanguageSelector":null,"Messages":{"PoweredByQualtrics":"Powered by Qualtrics","PoweredByQualtricsLabel":"Powered by Qualtrics: Learn more about Qualtrics in a new tab","A11yNextPage":"You are on the next page","A11yPageLoaded":"Page Loaded","A11yPageLoading":"Page is loading","A11yPrevPage":"You are on the previous page","FailedToReachServer":"We were unable to connect to our servers. Please check your internet connection and try again.","ConnectionError":"Connection Error","IPDLError":"Sorry, an unexpected error occurred.","Retry":"Retry","Cancel":"Cancel","Language":"Language","Done":"Done","AutoAdvanceLabel":"or press Enter","DecimalSeparator":"Please exclude commas and if necessary use a point as a decimal separator.","IE11Body":"You are using an unsupported browser. Qualtrics surveys will no longer load in Internet Explorer 11 after March 15, 2024.","BipolarPreference":"Select this answer if you prefer %1 over %2 by %3 points.","BipolarNoPreference":"Select this answer if you have no preference between %1 and %2.","Blank":"Blank","CaptchaRequired":"Answering the captcha is required to proceed","MCMSB_Instructions":"To select multiple options in a row, click and drag your mouse or hold down Shift when selecting. To select non-sequential options, hold down Control (on a PC) or Command (on a Mac) when clicking. To deselect an option, hold down Control or Command and click on a selected option.","MLDND_Instructions":"Drag and drop each item from the list into a bucket.","PGR_Instructions":"Drag and drop items into groups. Within each group, rank items by dragging and dropping them into place.","ROSB_Instructions":"Select items and then rank them by clicking the arrows to move each item up and down."},"IsPageMessage":false,"ErrorCode":null,"PageMessageTranslations":{},"CurrentLanguage":"EN","FallbackLanguage":"EN","QuestionRuntimes":{"QID1":{"Highlight":false,"ID":"QID1","Type":"MC","Selector":"SAVR","SubSelector":"TX","ErrorMsg":null,"TerminalAuthError":false,"Valid":false,"MobileFirst":false,"QuestionTypePluginProperties":null,"CurrentMultiPageQuestionIndex":0,"Displayed":true,"PreValidation":{"Settings":{"ForceResponse":"OFF","ForceResponseType":"ON","Type":"None"}},"Choices":{"1":{"ID":"1","RecodeValue":"1","VariableName":"1","Text":"","Display":"Extremely Informative","InputWidth":null,"Exclusive":false,"Selected":false,"Password":false,"TextEntry":false,"TextEntrySize":"Small","TextEntryLength":null,"InputHeight":null,"Error":null,"ErrorMsg":null,"PDPErrorMsg":null,"PDPError":null,"Displayed":true},"2":{"ID":"2","RecodeValue":"2","VariableName":"2","Text":"","Display":"Informative","InputWidth":null,"Exclusive":false,"Selected":false,"Password":false,"TextEntry":false,"TextEntrySize":"Small","TextEntryLength":null,"InputHeight":null,"Error":null,"ErrorMsg":null,"PDPErrorMsg":null,"PDPError":null,"Displayed":true},"3":{"ID":"3","RecodeValue":"3","VariableName":"3","Text":"","Display":"Neutral","InputWidth":null,"Exclusive":false,"Selected":false,"Password":false,"TextEntry":false,"TextEntrySize":"Small","TextEntryLength":null,"InputHeight":null,"Error":null,"ErrorMsg":null,"PDPErrorMsg":null,"PDPError":null,"Displayed":true},"4":{"ID":"4","RecodeValue":"4","VariableName":"4","Text":"","Display":"Uninformative","InputWidth":null,"Exclusive":false,"Selected":false,"Password":false,"TextEntry":false,"TextEntrySize":"Small","TextEntryLength":null,"InputHeight":null,"Error":null,"ErrorMsg":null,"PDPErrorMsg":null,"PDPError":null,"Displayed":true},"5":{"ID":"5","RecodeValue":"5","VariableName":"5","Text":"","Display":"Extremely Uninformative","InputWidth":null,"Exclusive":false,"Selected":false,"Password":false,"TextEntry":false,"TextEntrySize":"Small","TextEntryLength":null,"InputHeight":null,"Error":null,"ErrorMsg":null,"PDPErrorMsg":null,"PDPError":null,"Displayed":true}},"ChoiceOrder":["1","2","3","4","5"],"ChoiceTextPosition":"Left","Selected":null,"IsAutoAuthFailure":false,"ErrorSeverity":null,"PDPErrorMsg":null,"PDPError":null,"QuestionText":"How informative was this content to you?","CustomJS":"Qualtrics.SurveyEngine.addOnload(function()\n{\n\t/*Place your JavaScript here to run when the page loads*/\n\t     function getFocusable() {\n        return Array.from(document.querySelectorAll(\n            'a[href], button, textarea, input, select, [tabindex]:not([tabindex=\"-1\"])'\n        )).filter(el =>\n            !el.disabled &&\n            el.tabIndex !== -1 &&\n            el.offsetParent !== null\n        );\n    }\n    function getSiblingLabel(input) {\n        // Forward\n        let sib = input.nextElementSibling;\n        while (sib) {\n            if (sib.matches && sib.matches('span.LabelWrapper')) {\n                const lbl = sib.querySelector('label');\n                if (lbl) return lbl;\n            }\n            sib = sib.nextElementSibling;\n        }\n        // Backward\n        sib = input.previousElementSibling;\n        while (sib) {\n            if (sib.matches && sib.matches('span.LabelWrapper')) {\n                const lbl = sib.querySelector('label');\n                if (lbl) return lbl;\n            }\n            sib = sib.previousElementSibling;\n        }\n        return null;\n    }\n\n    let lastHighlightedLabel = null;\n\n    document.addEventListener('keydown', function (e) {\n        const focusable = getFocusable();\n        if ((e.key === 'Tab' || e.keyCode === 9)) {\n            const index = focusable.indexOf(document.activeElement);\n            if (index !== -1) {\n                e.preventDefault();\n                let nextIdx;\n                if (!e.shiftKey) {\n                    nextIdx = (index + 1) % focusable.length;\n                } else {\n                    nextIdx = (index - 1 + focusable.length) % focusable.length;\n                }\n                focusable[nextIdx].focus();\n            }\n        }\n        if (\n            (e.key === 'Enter' || e.keyCode === 13) &&\n            document.activeElement &&\n            document.activeElement.tagName === 'INPUT' &&\n            document.activeElement.type === 'radio'\n        ) {\n            e.preventDefault();\n            document.activeElement.checked = !document.activeElement.checked;\n            var evt = new Event('change', { bubbles: true });\n            document.activeElement.dispatchEvent(evt);\n\n            const label = getSiblingLabel(document.activeElement);\n            if (label) label.click();\n\n            setTimeout(() => {\n                const updatedFocusable = getFocusable();\n                if (updatedFocusable.length > 0) updatedFocusable[0].focus();\n            }, 100);\n        }\n    });\n\n    document.addEventListener('focusin', function (e) {\n        if (lastHighlightedLabel) {\n            lastHighlightedLabel.style.outline = \"\";\n            lastHighlightedLabel = null;\n        }\n        if (e.target.tagName === 'INPUT' && e.target.type === 'radio') {\n            const label = getSiblingLabel(e.target);\n            if (label) {\n                label.style.outline = \"2px solid #007CB0\";\n                label.style.outlineOffset = \"-2px\";\n                lastHighlightedLabel = label;\n            }\n        }\n    });\n\n    (function initialFocus() {\n        const focusable = getFocusable();\n        if (focusable.length > 0) focusable[0].focus();\n    })();\n\n   \n \n\n    });\n\n\n\nQualtrics.SurveyEngine.addOnReady(function()\n{\n\t// Hide the Next button\n\tthis.hideNextButton();\n\n\t// Save reference to current question\n\tvar that = this;\n\n\t// When the respondent selects an option, move to the next question\n\tjQuery('.ChoiceStructure input[type=radio]').on('click', function() {\n\t\tthat.clickNextButton();\n\t});\n});\n\nQualtrics.SurveyEngine.addOnUnload(function()\n{\n\t/*Place your JavaScript here to run when the page is unloaded*/\n});","ExistingChoices":{},"ProcessedDisplayChoiceOrder":["1","2","3","4","5"],"ChoiceOrderSetup":true,"Active":true}},"IsEOS":false,"FailedValidation":false,"PDPValidationFailureQuestionIDs":[],"BlockID":"BL_6nApmHHzkR86mRE","FormTitle":"Qualtrics Survey | Qualtrics Experience Management","SurveyMetaDescription":"The most powerful, simple and trusted way to gather experience data. Start your journey to experience management and try a free account today.","TableOfContents":null,"UseTableOfContents":false,"SM":{"BaseServiceURL":"https://survey.deloitte.com","SurveyVersionID":"9223370270725715901","IsBrandEncrypted":false,"JFEVersionID":"9d8944f1009cecf422a65344e7006efad4c90284","BrandDataCenterURL":"https://fra1.qualtrics.com","XSRFToken":"2gXSea0VGSlW5h3jAHEdxQ","StartDate":"2026-01-09 13:22:40","StartDateRaw":1767964960115,"BrandID":"surveydeloitte","SurveyID":"SV_87hIKer2z6wTI6G","BrowserName":"Chrome","BrowserVersion":"143.0.0.0","OS":"Windows NT 10.0","UserAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36","LastUserAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36","QueryString":"PublicationID=1005534&PageTitle=Weekly_Global_Economic_Update&SurveyTypeID=EconomicsSurvey1","IP":"92.20.49.98","URL":"https://survey.deloitte.com/jfe/form/SV_87hIKer2z6wTI6G?PublicationID=1005534&PageTitle=Weekly_Global_Economic_Update&SurveyTypeID=EconomicsSurvey1","BaseHostURL":"https://survey.deloitte.com","ProxyURL":"https://survey.deloitte.com/jfe/form/SV_87hIKer2z6wTI6G?PublicationID=1005534&PageTitle=Weekly_Global_Economic_Update&SurveyTypeID=EconomicsSurvey1","JFEDataCenter":"jfe8","dataCenterPath":"jfe8","IsPreview":false,"LinkType":"anonymous","geoIPLocation":{"IPAddress":"92.20.49.98","City":"Southwark","CountryName":"United Kingdom","CountryCode":"GB","Region":"SWK","RegionName":"Southwark","PostalCode":"SE15","Latitude":51.4647,"Longitude":-0.0509,"MetroCode":0,"Private":false},"geoIPV2Enabled":true,"EDFromRequest":["PublicationID","PageTitle","SurveyTypeID"],"FormSessionID":"FS_8DwnJC3EXyW7nyh"},"ED":{"SID":"SV_87hIKer2z6wTI6G","SurveyID":"SV_87hIKer2z6wTI6G","Q_URL":"https://survey.deloitte.com/jfe/form/SV_87hIKer2z6wTI6G?PublicationID=1005534&PageTitle=Weekly_Global_Economic_Update&SurveyTypeID=EconomicsSurvey1","UserAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36","Q_CHL":"anonymous","Q_LastModified":1766129045,"Q_Language":"EN"},"PostToStartED":{},"FormRuntime":null,"RuntimePayload":"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","TransactionID":1,"ReplacesOutdated":false,"EOSRedirectURL":null,"RedirectURL":null,"SaveOnPageUnload":true,"ProgressPercent":0,"ProgressBarText":"Survey Completion","ProgressAccessibleText":"Current Progress","FormOptions":{"BackButton":false,"SaveAndContinue":true,"SurveyProtection":"PublicSurvey","NoIndex":"Yes","SecureResponseFiles":true,"SurveyExpiration":"None","SurveyTermination":"DisplayMessage","Header":"","Footer":"","ProgressBarDisplay":"None","PartialData":"+1 week","PreviousButton":"","NextButton":"","SurveyTitle":"Qualtrics Survey | Qualtrics Experience Management","SkinLibrary":"surveydeloitte","SkinType":"templated","Skin":"qualtrics.base:surveydeloitte.3577629175:e31325df99acc081217db6bee643a0e36446e23c","NewScoring":1,"SurveyMetaDescription":"The most powerful, simple and trusted way to gather experience data. Start your journey to experience management and try a free account today.","EOSMessage":"MS_blS3vXuztqldy2q","ShowExportTags":false,"CollectGeoLocation":false,"PasswordProtection":"No","AnonymizeResponse":"No","RefererCheck":"No","ResponseSummary":"No","EOSMessageLibrary":"UR_bKErP96tEEWBGT3","EOSRedirectURL":null,"EmailThankYou":false,"ThankYouEmailMessageLibrary":null,"ThankYouEmailMessage":null,"InactiveSurvey":null,"PartialDeletion":null,"PartialDataCloseAfter":"LastActivity","AvailableLanguages":{"EN":[]},"SurveyName":"Economics Content - Audience Sentiment survey","CustomStyles":{"customCSS":".Skin .SkinInner{\n\nheight: 450px!important;\npadding: 12px 10px 0px 10px!important;\nflex-direction: column!important;\njustify-content: center!important;\nalign-items: flex-start!important;\ngap: 12px !important;\nborder-radius: 25px!important;\n\nbackground:#E6FFFF!important;\nbox-shadow: 3px 5px 15px 0 rgba(31, 31, 31, 0.25)!important;\n}\n\n.QuestionText{color: #1F1F1F!important;\n/*font-family: \"Adelle Sans Cnd\";*/\npadding: 40px 0px 40px 0px !important;\nfont-size: 18px!important;\nfont-style: normal!important;\nfont-weight: 800!important;\nline-height: 22px!important;}\n\n.SingleAnswer{\n  display: flex !important;\npadding: 8px !important;\nalign-items: center !important;\ngap: 10px !important;\nalign-self: stretch !important;\n\nborder-radius: 25px !important;\nborder: 0.7px solid #1F1F1F !important;\nbackground: #A2E1E1 !important;\n\ncolor: #1F1F1F !important;\n/*font-family: \"Adelle Sans Cnd\";*/\nfont-size: 14px !important;\nfont-style: normal !important;\nfont-weight: 400 !important;\nline-height: 95% !important;\n}\n@media only screen and (max-width: 770px) {\n    .Skin #LogoContainer {\n        padding: 0px !important;\n    }\n}\n\n\n.Skin label.SingleAnswer > span::before {\n  border:2px solid #1f1f1f !important;\n  font-size: 18px !important;\n}\n\n#BrandingFooter{\n  display: none !important;\n}\n\n#Plug a{\n  display: none !important;\n}\n\n.QuestionText {\n      padding: 0px 0px 20px 0px !important;\n  }\n\n  .EndOfSurvey{\n    color: #1F1F1F !important;\n    font-size: 18px;\n  }\n\n .Skin #HeaderContainer {\n        display: none !important;\n    }\n   .Skin #LogoContainer {\npadding: 20px 0px 20px 0px !important;\n}"},"SurveyLanguage":"EN","ActiveResponseSet":"RS_3pKOfx3blK4mg3c","SurveyStartDate":"0000-00-00 00:00:00","SurveyExpirationDate":"0000-00-00 00:00:00","SurveyCreationDate":"2025-11-14 18:13:23","SkinOptions":{"Version":3,"AnyDeviceSupport":true,"Icons":{"favicon":"https://survey.deloitte.com/CP/Graphic.php?IM=IM_cup6ekJevqrRnh4","appleTouchIcon":"/brand-management/apple-touch-icon","ogImage":""},"BrandingOnly":{"header":"","footer":"Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (&ldquo;DTTL&rdquo;), its global network of member firms, and their related entities (collectively, the &ldquo;Deloitte organization&rdquo;). DTTL (also referred to as &ldquo;Deloitte Global&rdquo;) and each of its member firms and related entities are legally separate and independent entities, which cannot obligate or bind each other in respect of third parties. DTTL and each DTTL member firm and related entity is liable only for its own acts and omissions, and not those of each other. DTTL does not provide services to clients. Please see <a href=\"http://www.deloitte.com/about\" style=\"text-decoration:none; color: blue;\" target=\"_blank\">www.deloitte.com/about</a> to learn more.<br />\n<br />\nThis communication and any attachment to it is for internal distribution among personnel of Deloitte Touche Tohmatsu Limited (&ldquo;DTTL&rdquo;), its global network of member firms and their related entities (collectively, the &ldquo;Deloitte organization&rdquo;). It may contain confidential information and is intended solely for the use of the individual or entity to whom it is addressed. If you are not the intended recipient, please notify us immediately and then delete this communication and all copies of it on your system. Please do not use this communication in any way. None of DTTL, its member firms, related entities, employees or agents shall be responsible for any loss or damage whatsoever arising directly or indirectly in connection with any person relying on this communication. DTTL and each of its member firms, and their related entities, are legally separate and independent entities.<br />\n<br />\n&copy; 2025. For information, contact Deloitte Global","css":"/*\n.Skin {\n font-family: Calibri!important;\n}\n*/\n.Skin #BrandingFooter, .Skin #Footer {\nmargin-top: 0 !important; font-size:10px !important;\n}\n\n","html":""},"ProgressBarPosition":"top","Logo":"https://survey.deloitte.com/CP/Graphic.php?IM=IM_TJZIIlB6LKndTji","LogoPosition":"left","LogoBanner":false,"QuestionsContainer":false,"QuestionDisplayWidth":"default","MCButtonChoices":false,"NPSMobileVertical":false,"HideRequiredAsterisk":false,"LayoutSpacing":0.5,"FallbackSkin":false},"SkinBaseCss":"/jfe/themes/templated-skins/qualtrics.base:surveydeloitte.3577629175:e31325df99acc081217db6bee643a0e36446e23c/version-1766126180428-461799/stylesheet.css","PageTransition":"None","Favicon":"https://survey.deloitte.com/brand-management/brand-assets/surveydeloitte/favicon.ico","CustomLanguages":null,"SurveyTimezone":"America/Denver","LinkType":"anonymous","Language":"EN","Languages":null,"DefaultLanguages":{"AR":"العربية","ASM":"অসমীয়া","AZ-AZ":"Azərbaycan dili","BEL":"Беларуская","BG":"Български","BS":"Bosanski","BN":"বাংলা","CA":"Català","CEB":"Bisaya","CKB":"كوردي","CS":"Čeština","CY":"Cymraeg","DA":"Dansk","DE":"Deutsch","EL":"Ελληνικά","EN":"English","EN-GB":"English (United Kingdom)","EN_GB":"English (Great Britain)","EO":"Esperanto","ES":"Español (América Latina)","ES-ES":"Español","ET":"Eesti","FA":"فارسی","FI":"Suomi","FR":"Français","FR-CA":"Français (Canada)","GU":"ગુજરાતી ","HE":"עברית","HI":"हिन्दी","HIL":"Hiligaynon","HR":"Hrvatski","HU":"Magyar","HYE":"Հայերեն","ID":"Bahasa Indonesia","ISL":"Íslenska","IT":"Italiano","JA":"日本語","KAN":"ಕನ್ನಡ","KAT":"ქართული","KAZ":"Қазақ","KM":"ភាសាខ្មែរ","KO":"한국어","LV":"Latviešu","LT":"Lietuvių","MAL":"മലയാളം","MAR":"मराठी","MK":"Mакедонски","MN":"Монгол","MS":"Bahasa Malaysia","MY":"မြန်မာဘာသာ","NE":"नेपाली","NL":"Nederlands","NO":"Norsk","ORI":"ଓଡ଼ିଆ ଭାଷା","PA-IN":"ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)","PL":"Polski","PT":"Português","PT-BR":"Português (Brasil)","RI-GI":"Rigi","RO":"Română","RU":"Русский","SIN":"සිංහල","SK":"Slovenčina","SL":"Slovenščina","SO":"Somali","SQI":"Shqip","SR":"Srpski","SR-ME":"Crnogorski","SV":"Svenska","SW":"Kiswahili","TA":"தமிழ்","TEL":"తెలుగు","TGL":"Tagalog","TH":"ภาษาไทย","TR":"Tϋrkçe","UK":"Українська","UR":"اردو","VI":"Tiếng Việt","ZH-S":"简体中文","ZH-T":"繁體中文","Q_DEV":"Developer"},"ThemeURL":"//eu.qualtrics.com/WRQualtricsShared/"},"Header":"","HeaderMessages":{},"Footer":"","FooterMessages":{},"HasJavaScript":true,"IsSystemMessage":false,"FeatureFlags":{"LogAllRumMetrics":false,"STX_HubRace":false,"STS_SpokeHubRoutingSim":false,"makeStartRequest":false,"verboseFrontendLogs":false,"JFE_BlockPrototypeJS":false},"TransformData":{},"AllowJavaScript":true,"TOCWarnPrevious":false,"NextButtonAriaLabel":"Next","PreviousButtonAriaLabel":"Previous","BrandType":"Corporate","TranslationUnavailable":false,"FilteredEDKeys":[],"CookieActions":{"Set":[],"Clear":[]}})
+        </script><div class="JFE" id="P_1767964961108"><div class="JFEContent SkinV2 webkit CSS3"><form id="Page" name="Page" class="Page ActivePage" data-testid="page-ready">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="user-scalable = yes, maximum-scale=10, minimum-scale=1, initial-scale = 1, width = device-width">
+<div class="Skin">
+	<div id="Overlay"></div>
+	<div id="Wrapper">
+		<div class="SkinInner">
+			<div id="LogoContainer">
+				<div id="Logo"><img src="./DEL+PRI+Insights+RGB" data-image-state="ready"></div>
+			</div>
+			
+			<div id="HeaderContainer">
+				
+				<div id="Header" role="banner"></div>
+			</div>
+			<div id="SkinContent">
+				<div id="Questions" role="main"><div id="QID1Separator" class="Separator" data-runtime-show="runtime.SeparatorDisplayed"></div><div class="QuestionOuter BorderColor MC  QID1" id="QID1" questionid="QID1" posttag="QID1" data-runtime-remove-class-hidden="runtime.Displayed"> <div id="QR~QID1~VALIDATION" class="ValidationError" role="alert" data-runtime-show="runtime.ErrorMsg" data-runtime-html="runtime.ErrorMsg" style="display: none;"></div> <div id="QR~QID1~SDPVALIDATION" class="ValidationError" role="alert" data-runtime-show="runtime.PDPErrorMsg" data-runtime-html="runtime.PDPErrorMsg" style="display: none;"></div> <div class="Inner BorderColor SAVR"> <div class="InnerInner BorderColor TX"> <fieldset aria-describedby="QR~QID1~VALIDATION QR~QID1~SDPVALIDATION"> <!-- BEGIN PARTIALS --><!-- Partial for defining the ControlContainerContent --><!-- END PARTIALS --><legend><div class="QuestionText BorderColor">How informative was this content to you?</div></legend><div class="QuestionBody"> <!-- Begin Choices w/o choice groups --> <ul class="ChoiceStructure">    <li class="Selection reg"> <input choiceid="1" aria-labelledby="QID1-1-label" class="radio QR-QID1-1 QWatchTimer" type="radio" name="QR~QID1" id="QR~QID1~1" value="1" data-runtime-checked="runtime.Selected"><label for="QR~QID1~1" class="q-radio" aria-hidden="true" data-runtime-class-q-checked="runtime.Choices.1.Selected"></label>  <span class="LabelWrapper"> <label for="QR~QID1~1" id="QID1-1-label" class="SingleAnswer  ChoiceTextPositionLeft" data-runtime-class-q-checked="runtime.Choices.1.Selected"><span>Extremely Informative</span></label></span> <div class="clear"></div> </li>   <li class="Selection alt"> <input choiceid="2" aria-labelledby="QID1-2-label" class="radio QR-QID1-2 QWatchTimer" type="radio" name="QR~QID1" id="QR~QID1~2" value="2" data-runtime-checked="runtime.Selected"><label for="QR~QID1~2" class="q-radio" aria-hidden="true" data-runtime-class-q-checked="runtime.Choices.2.Selected"></label>  <span class="LabelWrapper"> <label for="QR~QID1~2" id="QID1-2-label" class="SingleAnswer  ChoiceTextPositionLeft" data-runtime-class-q-checked="runtime.Choices.2.Selected"><span>Informative</span></label></span> <div class="clear"></div> </li>   <li class="Selection reg"> <input choiceid="3" aria-labelledby="QID1-3-label" class="radio QR-QID1-3 QWatchTimer" type="radio" name="QR~QID1" id="QR~QID1~3" value="3" data-runtime-checked="runtime.Selected"><label for="QR~QID1~3" class="q-radio" aria-hidden="true" data-runtime-class-q-checked="runtime.Choices.3.Selected"></label>  <span class="LabelWrapper"> <label for="QR~QID1~3" id="QID1-3-label" class="SingleAnswer  ChoiceTextPositionLeft" data-runtime-class-q-checked="runtime.Choices.3.Selected"><span>Neutral</span></label></span> <div class="clear"></div> </li>   <li class="Selection alt"> <input choiceid="4" aria-labelledby="QID1-4-label" class="radio QR-QID1-4 QWatchTimer" type="radio" name="QR~QID1" id="QR~QID1~4" value="4" data-runtime-checked="runtime.Selected"><label for="QR~QID1~4" class="q-radio" aria-hidden="true" data-runtime-class-q-checked="runtime.Choices.4.Selected"></label>  <span class="LabelWrapper"> <label for="QR~QID1~4" id="QID1-4-label" class="SingleAnswer  ChoiceTextPositionLeft" data-runtime-class-q-checked="runtime.Choices.4.Selected"><span>Uninformative</span></label></span> <div class="clear"></div> </li>   <li class="Selection reg"> <input choiceid="5" aria-labelledby="QID1-5-label" class="radio QR-QID1-5 QWatchTimer" type="radio" name="QR~QID1" id="QR~QID1~5" value="5" data-runtime-checked="runtime.Selected"><label for="QR~QID1~5" class="q-radio" aria-hidden="true" data-runtime-class-q-checked="runtime.Choices.5.Selected"></label>  <span class="LabelWrapper"> <label for="QR~QID1~5" id="QID1-5-label" class="SingleAnswer  ChoiceTextPositionLeft" data-runtime-class-q-checked="runtime.Choices.5.Selected"><span>Extremely Uninformative</span></label></span> <div class="clear"></div> </li>   </ul> <!-- End Choices w/o choice groups --> <div class="clear zero"></div></div> </fieldset> </div> </div>  </div></div>
+				<div id="Buttons" role="navigation"><input id="NextButton" class="NextButton Button" title=" → " type="button" name="NextButton" value=" → " data-runtime-disabled="runtime.Disabled" data-runtime-aria-label="runtime.ariaLabel" data-runtime-hide="runtime.Hide" page-id="P_1767964961108" aria-label="Next" style="display: none;"></div>
+			</div>
+			<div id="ProgressBar"></div>
+		</div>
+		<div id="Footer" role="contentinfo"></div>
+		<div id="BrandingFooter">Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (“DTTL”), its global network of member firms, and their related entities (collectively, the “Deloitte organization”). DTTL (also referred to as “Deloitte Global”) and each of its member firms and related entities are legally separate and independent entities, which cannot obligate or bind each other in respect of third parties. DTTL and each DTTL member firm and related entity is liable only for its own acts and omissions, and not those of each other. DTTL does not provide services to clients. Please see <a href="http://www.deloitte.com/about" style="text-decoration:none; color: blue;" target="_blank">www.deloitte.com/about</a> to learn more.<br>
+<br>
+This communication and any attachment to it is for internal distribution among personnel of Deloitte Touche Tohmatsu Limited (“DTTL”), its global network of member firms and their related entities (collectively, the “Deloitte organization”). It may contain confidential information and is intended solely for the use of the individual or entity to whom it is addressed. If you are not the intended recipient, please notify us immediately and then delete this communication and all copies of it on your system. Please do not use this communication in any way. None of DTTL, its member firms, related entities, employees or agents shall be responsible for any loss or damage whatsoever arising directly or indirectly in connection with any person relying on this communication. DTTL and each of its member firms, and their related entities, are legally separate and independent entities.<br>
+<br>
+© 2025. For information, contact Deloitte Global</div>
+		<div id="PushStickyFooter"></div>
+	</div>
+	<div id="Plug" style="display:block !important;"><a href="https://www.qualtrics.com/powered-by-qualtrics/?utm_source=internal%2Binitiatives&amp;utm_medium=survey%2Bpowered%2Bby%2Bqualtrics&amp;utm_content=surveydeloitte&amp;utm_survey_id=SV_87hIKer2z6wTI6G" target="_blank" aria-label="Powered by Qualtrics: Learn more about Qualtrics in a new tab">Powered by Qualtrics</a></div>
+</div>
+
+
+
+
+
+
+<style>/*
+.Skin {
+ font-family: Calibri!important;
+}
+*/
+.Skin #BrandingFooter, .Skin #Footer {
+margin-top: 0 !important; font-size:10px !important;
+}
+
+</style>
+</form></div></div>
+    
+
+</body></html>

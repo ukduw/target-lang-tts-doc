@@ -1,0 +1,1 @@
+/*JS fixes for legacy*/

@@ -1,0 +1,1 @@
+(function(c,d,a,e){var b=a(".vi16.navigation-banner");a(function(){BLK.responsive.isResponsive?b.find(".cover").css("background",""):b.find("header").css("background","")})})(window,document,jQuery);
