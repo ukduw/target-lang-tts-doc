@@ -46,10 +46,12 @@ class ScrapeText:
         br_la = last_article.get("blackrock")
         ss_la = last_article.get("substack") # e.g. if i follow SS's, can use "following" page as aggregator?
 
-        ScrapeText.scrape_deloitte(deloitte_url, del_la)
-        ScrapeText.scrape_jpmorgan(jpmorgan_url, jpm_la)
-        ScrapeText.scrape_blackrock(blackrock_url, br_la)
-        ScrapeText.scrape_substack(substack_url, ss_la)
+        del_list = ScrapeText.scrape_deloitte(deloitte_url, del_la)
+        jpm_list = ScrapeText.scrape_jpmorgan(jpmorgan_url, jpm_la)
+        br_list = ScrapeText.scrape_blackrock(blackrock_url, br_la)
+        ss_list = ScrapeText.scrape_substack(substack_url, ss_la)
+            # x_list[0] is most recent title string - use to update last_article
+            # x_list[1] is article text - build list, return
 
         # alter last_article dict
             # e.g. return last_article strings from below funcs...
