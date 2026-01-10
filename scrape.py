@@ -53,9 +53,16 @@ class ScrapeText:
             # x_list[0] is most recent title string - use to build dict to re-write json
             # x_list[1] is article text - build list, return
 
+        most_recent_titles_dict = {
+            "deloitte": del_list[0],
+            "jpmorgan": jpm_list[0],
+            "blackrock": br_list[0],
+            "substack": ss_list[0]
+        }
+
         # json.dump the whole thing, overwriting previous
         with open(LAST_ARTICLE_FILE, "w") as f:
-            json.dump(last_article, f, indent=2)
+            json.dump(most_recent_titles_dict, f, indent=2)
 
         article_texts = [ del_list[1], jpm_list[1], br_list[1], ss_list[1] ]
 
