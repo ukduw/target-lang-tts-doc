@@ -50,16 +50,17 @@ class ScrapeText:
         jpm_list = ScrapeText.scrape_jpmorgan(jpmorgan_url, jpm_la)
         br_list = ScrapeText.scrape_blackrock(blackrock_url, br_la)
         ss_list = ScrapeText.scrape_substack(substack_url, ss_la)
-            # x_list[0] is most recent title string - use to update last_article
+            # x_list[0] is most recent title string - use to build dict to re-write json
             # x_list[1] is article text - build list, return
 
-        # alter last_article dict
-            # e.g. return last_article strings from below funcs...
         # json.dump the whole thing, overwriting previous
         with open(LAST_ARTICLE_FILE, "w") as f:
             json.dump(last_article, f, indent=2)
 
-        return # needs to return list of strings of article text
+        article_texts = [ del_list[1], jpm_list[1], br_list[1], ss_list[1] ]
+
+        return article_texts
+            # returns list of strings of article text
     
 
     # these funcs need to take string param of last article
