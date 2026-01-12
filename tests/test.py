@@ -5,6 +5,11 @@ from scrape import ScrapeText
 from selective_translate import SelectiveTranslate
 from tts import TextToSpeech
 
+TEST_JSON = "test.json"
+with open(TEST_JSON, "r") as f:
+    last_article = json.load(f) # e.g. { "source1": "article_name", ... }
+
+
     # save .html file snapshots for each url (rather than brittle tests via live-site requests...)
 @pytest.mark.scrape
 def test_seed():
