@@ -31,6 +31,11 @@ def test_scrape_br():
     ScrapeText.scrape_blackrock()
     assert True # placeholder
 
+@pytest.mark.scrape
+def test_scrape_ss():
+    ScrapeText.scrape_substack()
+    assert True # placeholder
+
 
 
 @pytest.mark.translate
