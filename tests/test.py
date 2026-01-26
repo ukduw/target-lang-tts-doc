@@ -6,6 +6,11 @@ from tts import TextToSpeech
 
 # NOTE: think i've been excessively sticking to tdd
 # write targeted unit tests (for core logic) instead
+    # this project is integration + scraping-heavy...
+    # IO-bound
+    # much of the behavior is discovered/case by case
+# TODO: prototype code first, add unit tests after logic established
+# focus on testing python logic, not third-party behavior
 
 
 
