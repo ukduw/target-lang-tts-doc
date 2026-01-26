@@ -1,16 +1,12 @@
 import pytest
-import json
 
 from scrape import ScrapeText
 from selective_translate import SelectiveTranslate
 from tts import TextToSpeech
 
-TEST_JSON = "test.json"
-with open(TEST_JSON, "r") as f:
-    last_article = json.load(f) # e.g. { "source1": "article_name", ... }
-# can't see how this can be tested without changing seed_check() to accept a filepath
-# filepath points to json to be read
-    # can parameterize in tests to use test.json...
+# NOTE: think i've been excessively sticking to tdd
+# write targeted unit tests (for core logic) instead
+
 
 
     # save .html file snapshots for each url (rather than brittle tests via live-site requests...)
